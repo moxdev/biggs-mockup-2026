@@ -1,0 +1,2401 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biggs Responsive Hero Prototype</title>
+  <meta name="description" content="Responsive Biggs website hero prototype built with Tailwind CSS v4 browser CDN." />
+
+  <!-- Fonts: no font files are bundled. Fonts load from Google Fonts for prototype use. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS v4 browser CDN for prototype HTML -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @theme {
+      --font-heading: "League Spartan", Arial, Helvetica, sans-serif;
+      --font-body: "Open Sans", Arial, Helvetica, sans-serif;
+
+      --color-biggs-navy: #001F3F;
+      --color-biggs-navy-dark: #00162D;
+      --color-biggs-blue: #234F91;
+      --color-biggs-red: #E00A17;
+      --color-biggs-yellow: #FACB06;
+      --color-biggs-green: #2E7D32;
+      --color-biggs-unc: #42B7F5;
+
+      /* Custom icon colors */
+      /* bright sky blue, used for Air Conditioning */
+      --color-biggs-sky : #009FE3;
+      /* teal, used for Water Filtration */
+      --color-biggs-teal : #00A6A6;
+      /* orange, used for Water Heaters */
+      --color-biggs-orange : #F58220;
+      /* medium steel blue, used for Drain Cleaning */
+      --color-biggs-steel : #3B6EA8;
+
+
+
+      /* Custom 3xl breakpoint requested for wide screens */
+      --breakpoint-3xl: 120rem;
+
+      /* padding sapcing */
+      /* --spacing: 1px; */
+    }
+  </style>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #001F3F;
+    }
+
+    /* Header starts transparent over hero, then becomes white on scroll. */
+    .site-header {
+      background: transparent;
+      box-shadow: none;
+      transition: background-color 220ms ease, box-shadow 220ms ease, backdrop-filter 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(255, 255, 255, 0.90);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-link,
+    .menu-icon {
+      color: #ffffff;
+      transition: color 220ms ease;
+    }
+
+    .site-header.is-scrolled .nav-link,
+    .site-header.is-scrolled .menu-icon {
+      color: #001F3F;
+    }
+
+    .headline-shadow {
+      text-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-copy-shadow {
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .test {
+      border: 1px solid red;
+    }
+
+    .test-y {
+      border: 1px solid yellow;
+    }
+
+    .test-m {
+      border: 1px solid magenta;
+    }
+  </style>
+</head>
+
+<body class="font-body text-white antialiased overflow-x-hidden">
+  <!--
+    Tailwind default breakpoint guide used in this prototype:
+    base: < 640px
+    sm:   640px+
+    md:   768px+
+    lg:   1024px+   Desktop hero structure begins
+    xl:   1280px+
+    2xl:  1536px+
+    3xl:  1920px+   Custom max-width target
+  -->
+
+  <div class="min-h-screen w-full bg-biggs-navy overflow-x-hidden">
+    <!-- Sticky/fixed header sits outside the hero content and overlays the top of the page. -->
+    <header id="siteHeader" class="site-header fixed inset-x-0 z-50 w-full">
+      <!-- logo/nav container -->
+      <div class="flex items-center justify-between px-5 py-5 md:px-10 2xl:px-20">
+        <!-- logo -->
+        <a href="#" class="inline-flex shrink-0 items-center" aria-label="Biggs home">
+          <img src="assets/biggs-logo.svg" alt="Biggs HVAC, Plumbing, Electrical, Septic & Sewer"
+            class="w-55 h-auto lg:w-60" />
+        </a>
+
+        <!-- Nav -->
+        <nav class="hidden items-center gap-8 xl:gap-11 lg:flex lg:max-w-max" aria-label="Primary navigation">
+          <span
+            class="nav-link cursor-pointer font-heading text-[1.05rem] font-black uppercase tracking-[0.04em]">HVAC</span>
+          <span
+            class="nav-link cursor-pointer font-heading text-[1.05rem] font-black uppercase tracking-[0.04em]">Plumbing</span>
+          <span
+            class="nav-link cursor-pointer font-heading text-[1.05rem] font-black uppercase tracking-[0.04em]">Electrical</span>
+          <span
+            class="nav-link cursor-pointer font-heading text-[1.05rem] font-black uppercase tracking-[0.04em]">Septic</span>
+          <span
+            class="nav-link cursor-pointer font-heading text-[1.05rem] font-black uppercase tracking-[0.04em]">About</span>
+          <span
+            class="nav-link cursor-pointer font-heading text-[1.05rem] font-black uppercase tracking-[0.04em]">Contact</span>
+        </nav>
+        <!-- Call now button -->
+        <a href="tel:9193298288"
+          class="hidden items-center justify-center bg-biggs-yellow px-10 text-center font-heading text-xl font-black uppercase tracking-[0.03em] text-biggs-navy transition hover:bg-yellow-300 lg:inline-flex">
+          Call Now
+        </a>
+
+        <!-- Visual-only mobile menu icon for this prototype. -->
+        <button class="menu-icon inline-flex h-12 w-12 items-center justify-center lg:hidden"
+          aria-label="Open navigation menu" type="button">
+          <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- REVIEWS / REPUTATION SECTION -->
+      <section id="reviews"
+        class="relative overflow-hidden bg-white px-5 py-16 text-biggs-navy md:px-10 lg:py-20 2xl:px-20"
+        aria-label="Customer reviews and reputation">
+
+        <!-- Soft background accents -->
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            class="absolute right-0 top-0 h-[360px] w-[460px] opacity-30 [background-image:radial-gradient(rgba(35,79,145,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px]">
+          </div>
+
+          <div
+            class="absolute bottom-0 right-0 h-[260px] w-full bg-[radial-gradient(circle_at_80%_100%,rgba(35,79,145,0.12),transparent_12%)]">
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-[1540px]">
+
+          <!-- Main Reviews Panel -->
+          <div
+            class="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 px-5 py-8 shadow-[0_18px_55px_rgba(0,31,63,0.10)] sm:px-8 lg:px-10 lg:py-10">
+
+            <!-- Fixed branded bottom sweep -->
+            <div class="pointer-events-none absolute inset-x-0 bottom-[-10px] z-0 hidden lg:block" aria-hidden="true">
+              <svg class="absolute bottom-0 right-0 h-24 w-[1150px] min-w-[1150px] max-w-none"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 96" fill="none" preserveAspectRatio="none">
+                <path d="M0 0h1150v96H0z" fill="none" />
+                <path d="M1322.8 -10.312 1343.869 180.529 -171.981 347.88 -193.05 157.04Z" fill="#234F91" />
+                <path d="M1321.69 -19.251 1322.788 -9.312 -193.062 158.04 -194.159 148.1Z" fill="#E00A17" />
+              </svg>
+            </div>
+
+            <div
+              class="relative z-10 grid gap-10 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-center xl:gap-12">
+
+              <!-- LEFT CONTENT -->
+              <div class="min-w-0">
+
+                <!-- Eyebrow -->
+                <div
+                  class="text-biggs-blue mb-4 inline-flex items-center gap-3 rounded-full border border-biggs-blue/15 bg-biggs-blue/5 px-4 py-2 sm:py-3">
+                  <svg class="h-5 w-5 fill-biggs-yellow sm:h-6 sm:w-6" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                  </svg>
+
+                  <p
+                    class="h-4 font-heading text-sm font-black uppercase tracking-[0.18em] text-biggs-blue sm:h-5 sm:text-base">
+                    Customer Reviews
+                  </p>
+                </div>
+
+                <!-- Heading -->
+                <h2
+                  class="max-w-3xl font-heading text-[clamp(2.85rem,8vw,4.8rem)] font-black uppercase leading-[0.88] tracking-tight text-biggs-navy xl:text-[4.1rem] 2xl:text-[4.65rem]">
+                  Trusted by Homeowners Across the Triangle
+                </h2>
+
+                <div class="mt-5 h-1.5 w-20 rounded-full bg-biggs-yellow"></div>
+
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-700 sm:text-xl xl:text-lg 2xl:text-xl">
+                  With a <strong class="font-extrabold text-biggs-navy">4.9-star Google rating</strong> and
+                  <strong class="font-extrabold text-biggs-navy">900+ reviews</strong>, Biggs is proud to be a trusted
+                  choice for HVAC, plumbing, electrical, and septic service across the Raleigh area.
+                </p>
+
+                <!-- Google Rating + BBB Cards -->
+                <div class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,300px)_minmax(0,300px)]">
+
+                  <!-- Google Rating Card -->
+                  <div
+                    class="relative w-full h-full overflow-hidden rounded-2xl bg-gradient-to-br from-biggs-blue via-[#0B3D78] to-biggs-navy p-5 text-white shadow-[0_14px_32px_rgba(0,31,63,0.24)]">
+
+                    <div
+                      class="pointer-events-none absolute right-[-80px] top-[-80px] h-48 w-48 rounded-full bg-biggs-blue/30 blur-3xl"
+                      aria-hidden="true"></div>
+
+                    <div
+                      class="pointer-events-none absolute inset-0 opacity-20 [background-image:radial-gradient(rgba(255,255,255,0.45)_1px,transparent_1px)] [background-size:14px_14px]"
+                      aria-hidden="true"></div>
+
+                    <!-- Google Card Content-->
+                    <!-- 4.9/stars/900+/Google logo -->
+                    <div class="relative h-full flex items-center justify-center sm:flex-col">
+
+                      <!-- 4.9 -->
+                      <p
+                        class="max-[400px]:text-7xl text-8xl pr-3 font-heading font-black leading-none tracking-tight text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] sm:p-0">
+                        4.9
+                      </p>
+
+                      <div class="pl-3 flex flex-col sm:p-0">
+                        <!-- Stars -->
+                        <div class="flex text-biggs-yellow sm:justify-center" aria-label="5 star rating">
+                          <svg class="h-5 w-5 fill-current sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                              d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                          </svg>
+                          <svg class="h-5 w-5 fill-current sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                              d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                          </svg>
+                          <svg class="h-5 w-5 fill-current sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                              d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                          </svg>
+                          <svg class="h-5 w-5 fill-current sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                              d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                          </svg>
+                          <svg class="h-5 w-5 fill-current sm:h-5 sm:w-5 2xl:h-6 2xl:w-6" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path
+                              d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                          </svg>
+                        </div>
+
+                        <!-- 900+ -->
+                        <p
+                          class="mt-2 text-left max-w-[11.5rem] font-heading text-lg font-black uppercase leading-tight text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] sm:text-center sm:mx-auto sm:text-lg 2xl:text-xl">
+                          900+ Google Reviews
+                        </p>
+                        <!-- Google logo -->
+                        <div class="sm:flex sm:items-center sm:justify-center">
+                          <span class="font-body text-2xl font-extrabold tracking-tight sm:text-2xl 2xl:text-3xl">
+                            <span class="text-[#4285F4]">G</span><span class="text-[#DB4437]">o</span><span
+                              class="text-[#F4B400]">o</span><span class="text-[#4285F4]">g</span><span
+                              class="text-[#0F9D58]">l</span><span class="text-[#DB4437]">e</span>
+                          </span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- BBB Rating Card -->
+                  <div
+                    class="relative h-full w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_28px_rgba(0,31,63,0.12)]">
+
+                    <!-- Top blue accent bar -->
+                    <div class="z-20 absolute inset-x-0 top-0 h-1.5 bg-biggs-blue"></div>
+
+                    <!-- BBB Rating Card -->
+                    <div
+                      class="relative h-full py-2 px-5 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_10px_28px_rgba(0,31,63,0.12)] sm:p-5">
+
+                      <!-- BBB Logo Content Container -->
+                      <div class="h-full flex flex-col gap-3 items-center justify-center px-2.5 py-5">
+                        <div class="w-[110px] 2xl:w-[130px]">
+                          <img class="w-full h-full" src="assets/bbb-blue.svg" alt="BBB Accredited Business">
+                        </div>
+
+                        <!-- Red divider accent bar -->
+                        <div class="mt-2 h-1.5 w-18 rounded-full bg-biggs-red"> </div>
+
+                        <p
+                          class="min-w-0 overflow-hidden text-center font-body text-xl font-semibold leading-[1.08] tracking-tight text-biggs-navy-dark 2xl:text-2xl">
+                          Accredited.
+                          Verified.
+                          Trusted.
+                        </p>
+
+                        <div class="flex min-w-0 items-start gap-2">
+                          <span
+                            class="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md border-2 border-biggs-green text-biggs-green">
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M20 6 9 17l-5-5" />
+                            </svg>
+                          </span>
+
+                          <span class="truncate font-heading text-lg font-black text-biggs-blue lg:text-xl">
+                            BBB.org
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- RIGHT REVIEW CARDS AREA -->
+              <div class="min-w-0">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <p class="font-heading text-xl font-black uppercase tracking-tight text-biggs-navy">
+                    What Customers Are Saying
+                  </p>
+
+                  <div class="flex items-center gap-2">
+                    <button type="button" onclick="scrollReviews(-1)"
+                      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-biggs-navy shadow-[0_8px_20px_rgba(0,31,63,0.12)] transition duration-200 hover:bg-biggs-blue hover:text-white focus:outline-none focus:ring-4 focus:ring-biggs-blue/20"
+                      aria-label="Scroll reviews left">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M15 18l-6-6 6-6" />
+                      </svg>
+                    </button>
+
+                    <button type="button" onclick="scrollReviews(1)"
+                      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-biggs-navy shadow-[0_8px_20px_rgba(0,31,63,0.12)] transition duration-200 hover:bg-biggs-blue hover:text-white focus:outline-none focus:ring-4 focus:ring-biggs-blue/20"
+                      aria-label="Scroll reviews right">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 18l6-6-6-6" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Horizontal Scroll Review Cards with visible scrollbar -->
+                <div id="reviewsTrack" class="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4
+                  [&::-webkit-scrollbar]:h-2
+                  [&::-webkit-scrollbar-track]:rounded-full
+                  [&::-webkit-scrollbar-track]:bg-slate-200
+                  [&::-webkit-scrollbar-thumb]:rounded-full
+                  [&::-webkit-scrollbar-thumb]:bg-biggs-blue/60">
+
+                  <!-- Review Card 1 -->
+                  <article
+                    class="min-h-[330px] w-[82vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_30px_rgba(0,31,63,0.10)] sm:w-[340px] xl:min-h-[395px] xl:w-[300px] 2xl:min-h-[360px] 2xl:w-[330px]">
+
+                    <div class="h-1.5 bg-biggs-blue"></div>
+
+                    <div class="flex min-h-[324px] flex-col justify-between p-6 xl:min-h-[389px] 2xl:min-h-[354px]">
+                      <div>
+                        <div class="flex items-center gap-3">
+                          <span
+                            class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path
+                                d="M7.17 6C4.83 7.5 3.75 9.4 3.75 12.1V18h6.5v-6.35H7.1c.05-1.25.65-2.25 1.95-3.1L7.17 6Zm9 0c-2.34 1.5-3.42 3.4-3.42 6.1V18h6.5v-6.35H16.1c.05-1.25.65-2.25 1.95-3.1L16.17 6Z" />
+                            </svg>
+                          </span>
+
+                          <div class="flex text-biggs-yellow" aria-label="5 star review">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+
+                        <p class="mt-6 text-base font-semibold leading-7 text-slate-700">
+                          “Biggs came out the same day our AC went out. The technician was professional, explained
+                          everything
+                          clearly, and had us cool again in no time.”
+                        </p>
+                      </div>
+
+                      <div class="mt-6 border-t border-slate-200 pt-5">
+                        <p class="font-heading text-xl font-black leading-none text-biggs-navy">
+                          Sarah M. - Raleigh
+                        </p>
+
+                        <span
+                          class="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-heading text-sm font-black uppercase text-biggs-blue">
+                          HVAC
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <!-- Review Card 2 -->
+                  <article
+                    class="min-h-[330px] w-[82vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_30px_rgba(0,31,63,0.10)] sm:w-[340px] xl:min-h-[395px] xl:w-[300px] 2xl:min-h-[360px] 2xl:w-[330px]">
+
+                    <div class="h-1.5 bg-biggs-blue"></div>
+
+                    <div class="flex min-h-[324px] flex-col justify-between p-6 xl:min-h-[389px] 2xl:min-h-[354px]">
+                      <div>
+                        <div class="flex items-center gap-3">
+                          <span
+                            class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path
+                                d="M7.17 6C4.83 7.5 3.75 9.4 3.75 12.1V18h6.5v-6.35H7.1c.05-1.25.65-2.25 1.95-3.1L7.17 6Zm9 0c-2.34 1.5-3.42 3.4-3.42 6.1V18h6.5v-6.35H16.1c.05-1.25.65-2.25 1.95-3.1L16.17 6Z" />
+                            </svg>
+                          </span>
+
+                          <div class="flex text-biggs-yellow" aria-label="5 star review">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+
+                        <p class="mt-6 text-base font-semibold leading-7 text-slate-700">
+                          “The team was on time, friendly, and fixed our issue quickly. Excellent service from start to
+                          finish.”
+                        </p>
+                      </div>
+
+                      <div class="mt-6 border-t border-slate-200 pt-5">
+                        <p class="font-heading text-xl font-black leading-none text-biggs-navy">
+                          James T. - Garner
+                        </p>
+
+                        <span
+                          class="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-heading text-sm font-black uppercase text-biggs-blue">
+                          Plumbing
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <!-- Review Card 3 -->
+                  <article
+                    class="min-h-[330px] w-[82vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_30px_rgba(0,31,63,0.10)] sm:w-[340px] xl:min-h-[395px] xl:w-[300px] 2xl:min-h-[360px] 2xl:w-[330px]">
+
+                    <div class="h-1.5 bg-biggs-blue"></div>
+
+                    <div class="flex min-h-[324px] flex-col justify-between p-6 xl:min-h-[389px] 2xl:min-h-[354px]">
+                      <div>
+                        <div class="flex items-center gap-3">
+                          <span
+                            class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path
+                                d="M7.17 6C4.83 7.5 3.75 9.4 3.75 12.1V18h6.5v-6.35H7.1c.05-1.25.65-2.25 1.95-3.1L7.17 6Zm9 0c-2.34 1.5-3.42 3.4-3.42 6.1V18h6.5v-6.35H16.1c.05-1.25.65-2.25 1.95-3.1L16.17 6Z" />
+                            </svg>
+                          </span>
+
+                          <div class="flex text-biggs-yellow" aria-label="5 star review">
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                            <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                              <path
+                                d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+                            </svg>
+                          </div>
+                        </div>
+
+                        <p class="mt-6 text-base font-semibold leading-7 text-slate-700">
+                          “Professional, knowledgeable, and honest. Biggs is our go-to company for home service.”
+                        </p>
+                      </div>
+
+                      <div class="mt-6 border-t border-slate-200 pt-5">
+                        <p class="font-heading text-xl font-black leading-none text-biggs-navy">
+                          Melissa D. - Cary
+                        </p>
+
+                        <span
+                          class="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 font-heading text-sm font-black uppercase text-biggs-blue">
+                          Electrical
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="my-13 grid gap-4 sm:grid-cols-2">
+                  <a href="https://www.google.com/search?q=Biggs%20HVAC" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-biggs-navy bg-white px-6 py-4 font-heading text-xl font-black uppercase leading-none text-biggs-navy transition duration-200 hover:-translate-y-0.5 hover:bg-biggs-navy hover:text-white focus:outline-none focus:ring-4 focus:ring-biggs-blue/20">
+                    Read More Reviews
+
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </a>
+                  <a href="tel:9193298288"
+                    class="inline-flex items-center justify-center gap-3 rounded-xl bg-biggs-yellow px-6 py-4 font-heading text-xl font-black uppercase leading-none text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.24)] transition duration-200 hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-biggs-yellow/40">
+
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z" />
+                    </svg>
+
+                    Schedule Service
+                  </a>
+
+                </div>
+
+              </div>
+              <!-- RIGHT REVIEW CARDS AREA END -->
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRIORITY SERVICE AGREEMENT SECTION -->
+      <section id="priority-service-agreement"
+        class="relative overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(35,79,145,0.55),transparent_34%),linear-gradient(135deg,#001F3F_0%,#062B57_48%,#00162D_100%)] px-5 py-16 text-white md:px-10 lg:py-20 2xl:px-20"
+        aria-label="Priority Service Agreement memberships">
+
+        <!-- Background accents -->
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            class="absolute right-8 top-10 hidden h-44 w-44 opacity-25 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px] md:block">
+          </div>
+
+          <div
+            class="absolute bottom-32 left-0 hidden h-40 w-52 opacity-20 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block">
+          </div>
+
+          <div class="absolute inset-x-0 top-[32%] h-[340px] -skew-y-6 bg-biggs-blue/18 blur-[1px]"></div>
+          <div class="absolute inset-x-0 bottom-[-140px] h-[340px] -skew-y-6 bg-biggs-blue/20 blur-[1px]"></div>
+        </div>
+
+        <div class="relative z-10 mx-auto w-full max-w-[1540px]">
+
+          <!-- Top Content / Feature Layout -->
+          <div class="grid gap-12 xl:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] xl:items-center xl:gap-14">
+
+            <!-- LEFT CONTENT -->
+            <div class="text-center xl:text-left">
+
+              <!-- Eyebrow -->
+              <div
+                class="inline-flex items-center gap-3 rounded-full border border-[#42B7F5]/60 bg-white/5 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-sm sm:px-5">
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-biggs-yellow text-biggs-navy">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+
+                <p class="font-heading text-sm font-black uppercase tracking-[0.18em] text-[#42B7F5] sm:text-base">
+                  Priority Service Agreement
+                </p>
+              </div>
+
+              <!-- Heading -->
+              <h2
+                class="mx-auto mt-7 max-w-[12ch] font-heading text-[clamp(3rem,8vw,5.6rem)] font-black uppercase leading-[0.9] tracking-[-0.03em] text-white xl:mx-0 xl:max-w-[13ch]">
+                Whole-Home Protection.
+                <span class="block text-[#42B7F5]">One Simple Membership Path.</span>
+              </h2>
+
+              <div class="mx-auto mt-5 h-1.5 w-20 rounded-full bg-biggs-yellow xl:mx-0"></div>
+
+              <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/90 sm:text-xl xl:mx-0 xl:max-w-[42rem]">
+                Biggs Priority Service Agreements help keep your home’s essential systems running at their best with
+                proactive
+                maintenance, priority scheduling, repair savings, and total peace of mind.
+              </p>
+
+              <!-- Benefits Bar -->
+              <div
+                class="mx-auto mt-9 max-w-[760px] overflow-hidden rounded-[1.5rem] border border-white/20 bg-white/8 shadow-[0_22px_60px_rgba(0,0,0,0.20)] backdrop-blur-sm xl:mx-0">
+
+                <div
+                  class="grid grid-cols-2 divide-x divide-y divide-white/15 sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0 xl:grid-cols-6">
+
+                  <!-- Benefit 1 -->
+                  <div class="flex flex-col items-center justify-center gap-3 px-3 py-5 text-center">
+                    <span
+                      class="inline-flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-biggs-red text-white shadow-[0_10px_22px_rgba(224,10,23,0.24)]">
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M3 10h18" />
+                        <path d="m9 15 2 2 4-4" />
+                      </svg>
+                    </span>
+
+                    <p class="font-heading text-[0.85rem] font-black uppercase leading-tight text-white">
+                      Priority Scheduling
+                    </p>
+                  </div>
+
+                  <!-- Benefit 2 -->
+                  <div class="flex flex-col items-center justify-center gap-3 px-3 py-5 text-center">
+                    <span
+                      class="inline-flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-biggs-green text-white shadow-[0_10px_22px_rgba(46,125,50,0.24)]">
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                        <circle cx="15" cy="9" r="1" />
+                        <path d="m9 15 6-6" />
+                      </svg>
+                    </span>
+
+                    <p class="font-heading text-[0.85rem] font-black uppercase leading-tight text-white">
+                      15% Off Repairs
+                    </p>
+                  </div>
+
+                  <!-- Benefit 3 -->
+                  <div class="flex flex-col items-center justify-center gap-3 px-3 py-5 text-center">
+                    <span
+                      class="inline-flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white shadow-[0_10px_22px_rgba(35,79,145,0.24)]">
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M9.1 9a3 3 0 1 1 5.8 1c0 2-3 2.2-3 4" />
+                        <path d="M12 18h.01" />
+                      </svg>
+                    </span>
+
+                    <p class="font-heading text-[0.85rem] font-black uppercase leading-tight text-white">
+                      Waived Diagnostic Fees
+                    </p>
+                  </div>
+
+                  <!-- Benefit 4 -->
+                  <div class="flex flex-col items-center justify-center gap-3 px-3 py-5 text-center">
+                    <span
+                      class="inline-flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-[#00A6A6] text-white shadow-[0_10px_22px_rgba(0,166,166,0.24)]">
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </span>
+
+                    <p class="font-heading text-[0.85rem] font-black uppercase leading-tight text-white">
+                      Extended Warranty
+                    </p>
+                  </div>
+
+                  <!-- Benefit 5 -->
+                  <div class="flex flex-col items-center justify-center gap-3 px-3 py-5 text-center">
+                    <span
+                      class="inline-flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-[#F58220] text-white shadow-[0_10px_22px_rgba(245,130,32,0.24)]">
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 8v4l2.5 2.5" />
+                        <path d="M20.4 14.5A8.5 8.5 0 1 1 15 4.1" />
+                        <path d="M17 3v4h4" />
+                      </svg>
+                    </span>
+
+                    <p class="font-heading text-[0.85rem] font-black uppercase leading-tight text-white">
+                      Emergency Service Savings
+                    </p>
+                  </div>
+
+                  <!-- Benefit 6 -->
+                  <div class="flex flex-col items-center justify-center gap-3 px-3 py-5 text-center">
+                    <span
+                      class="inline-flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-[#3B6EA8] text-white shadow-[0_10px_22px_rgba(59,110,168,0.24)]">
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 12h4l2-4 4 8 2-4h4" />
+                      </svg>
+                    </span>
+
+                    <p class="font-heading text-[0.85rem] font-black uppercase leading-tight text-white">
+                      Proactive Care
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT HOUSE FEATURE -->
+            <div>
+
+              <!-- Coverage Header -->
+              <div class="mx-auto max-w-4xl text-center">
+                <div class="flex items-center justify-center gap-3">
+                  <span class="hidden h-px w-24 border-t border-dashed border-white/45 sm:block"></span>
+                  <p class="font-heading text-sm font-black uppercase tracking-[0.26em] text-[#42B7F5] sm:text-base">
+                    Whole Home Coverage
+                  </p>
+                  <span class="hidden h-px w-24 border-t border-dashed border-white/45 sm:block"></span>
+                </div>
+              </div>
+
+              <!-- Feature Image Card -->
+              <div class="relative mx-auto mt-8 max-w-[46rem] xl:mt-10 xl:max-w-[58rem]">
+
+                <!-- Angled blue panel behind image -->
+                <div
+                  class="absolute -inset-x-4 top-8 bottom-6 rotate-[-2deg] rounded-[2rem] border border-white/15 bg-[linear-gradient(135deg,rgba(47,103,184,0.75)_0%,rgba(35,79,145,0.5)_55%,rgba(0,31,63,0.75)_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
+                </div>
+
+                <!-- Dot accents -->
+                <div
+                  class="pointer-events-none absolute -right-10 top-16 hidden h-36 w-36 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.7)_1.5px,transparent_1.5px)] [background-size:18px_18px] md:block"
+                  aria-hidden="true"></div>
+
+                <!-- Shield badge -->
+                <div class="absolute -left-3 top-10 z-20 hidden sm:block xl:-left-10 xl:top-12">
+                  <div class="relative">
+                    <div class="absolute inset-[-1.25rem] rounded-full border border-white/15"></div>
+                    <div class="absolute inset-[-2.25rem] rounded-full border border-white/10"></div>
+
+                    <span
+                      class="relative inline-flex h-20 w-20 items-center justify-center rounded-full border-4 border-white/30 bg-biggs-blue text-white shadow-[0_16px_34px_rgba(0,0,0,0.28)] xl:h-24 xl:w-24">
+                      <svg class="h-10 w-10 xl:h-12 xl:w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Peace badge -->
+                <div class="absolute -right-2 bottom-8 z-20 hidden md:block xl:-right-10 xl:bottom-12">
+                  <div class="relative">
+                    <div class="absolute inset-[-1.25rem] rounded-full border border-white/15"></div>
+                    <div class="absolute inset-[-2.25rem] rounded-full border border-white/10"></div>
+
+                    <div
+                      class="relative flex h-24 w-24 items-center justify-center rounded-full border-4 border-biggs-blue bg-white text-center shadow-[0_16px_34px_rgba(0,0,0,0.25)] xl:h-28 xl:w-28">
+                      <p
+                        class="font-heading text-[0.86rem] font-black uppercase leading-[1.05] tracking-[0.04em] text-biggs-navy xl:text-[0.95rem]">
+                        Total<br>
+                        <span class="text-[1.25rem] xl:text-[1.45rem]">Peace</span><br>
+                        Of<br>
+                        Mind
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Main image frame -->
+                <div
+                  class="relative z-10 overflow-hidden rounded-[1.75rem] border border-white/25 bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_52%),linear-gradient(135deg,#2F67B8_0%,#234F91_45%,#163A6E_100%)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.30)] sm:p-4">
+
+                  <div
+                    class="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:radial-gradient(rgba(255,255,255,0.9)_1px,transparent_1px)] [background-size:18px_18px]"
+                    aria-hidden="true"></div>
+
+                  <div
+                    class="relative mx-auto flex aspect-[1.55/1] w-full items-center justify-center overflow-hidden rounded-[1.35rem] border-4 border-white/70 bg-white/15 shadow-[inset_0_2px_14px_rgba(0,31,63,0.12),0_12px_28px_rgba(0,31,63,0.18)]">
+
+                    <div class="absolute inset-0 h-full w-full bg-biggs-blue/20"></div>
+
+                    <img class="relative z-10 h-full w-full object-cover" src="assets/house2.png"
+                      alt="Illustration of a home protected by HVAC, plumbing, and electrical membership coverage">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Plan Cards -->
+          <div class="mx-auto mt-14 max-w-[1380px]">
+            <div class="grid auto-rows-fr grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+              <!-- Premier -->
+              <article
+                class="relative flex h-full min-h-[230px] flex-col rounded-[1.5rem] border border-white/20 bg-white px-5 pb-6 pt-12 text-center text-biggs-navy shadow-[0_18px_38px_rgba(0,0,0,0.18)]">
+                <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                  <span
+                    class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-biggs-navy text-white shadow-[0_10px_24px_rgba(0,31,63,0.25)] ring-4 ring-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="flex h-full flex-col items-center justify-start">
+                  <h4 class="font-heading text-3xl font-black uppercase leading-none text-biggs-navy">
+                    Premier
+                  </h4>
+
+                  <span
+                    class="mt-3 inline-flex rounded-full bg-biggs-yellow px-3 py-1 font-heading text-sm font-black uppercase text-biggs-navy">
+                    Most Popular
+                  </span>
+
+                  <p class="mt-5 text-lg leading-8 text-slate-700">
+                    HVAC + Plumbing + Electrical
+                  </p>
+
+                  <p class="mt-4 text-base leading-7 text-slate-600">
+                    Complete whole-home coverage for total comfort and confidence.
+                  </p>
+                </div>
+              </article>
+
+              <!-- HVAC -->
+              <article
+                class="relative flex h-full min-h-[230px] flex-col rounded-[1.5rem] border border-biggs-red/70 bg-white px-5 pb-6 pt-12 text-center text-biggs-navy shadow-[0_18px_38px_rgba(0,0,0,0.18)]">
+                <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                  <span
+                    class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-biggs-red text-white shadow-[0_10px_24px_rgba(224,10,23,0.25)] ring-4 ring-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2v20" />
+                      <path d="M17 5l-5 5-5-5" />
+                      <path d="M17 19l-5-5-5 5" />
+                      <path d="M2 12h20" />
+                      <path d="M5 7l14 10" />
+                      <path d="M19 7 5 17" />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="flex h-full flex-col items-center justify-start">
+                  <h4 class="font-heading text-3xl font-black uppercase leading-none text-biggs-red">
+                    HVAC
+                  </h4>
+
+                  <p class="mt-2 font-heading text-sm font-black uppercase tracking-[0.08em] text-biggs-blue">
+                    Priority Service
+                  </p>
+
+                  <p class="mt-5 text-lg leading-8 text-slate-700">
+                    Comfort-system care and repair savings.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Plumbing -->
+              <article
+                class="relative flex h-full min-h-[230px] flex-col rounded-[1.5rem] border border-biggs-blue/40 bg-white px-5 pb-6 pt-12 text-center text-biggs-navy shadow-[0_18px_38px_rgba(0,0,0,0.18)]">
+                <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                  <span
+                    class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-biggs-blue text-white shadow-[0_10px_24px_rgba(35,79,145,0.25)] ring-4 ring-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2.8C9.2 7 7 9.5 7 13a5 5 0 0 0 10 0c0-3.5-2.2-6-5-10.2z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="flex h-full flex-col items-center justify-start">
+                  <h4 class="font-heading text-3xl font-black uppercase leading-none text-biggs-blue">
+                    Plumbing
+                  </h4>
+
+                  <p class="mt-2 font-heading text-sm font-black uppercase tracking-[0.08em] text-biggs-blue">
+                    Priority Service
+                  </p>
+
+                  <p class="mt-5 text-lg leading-8 text-slate-700">
+                    Annual plumbing care and water-heater service.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Electrical -->
+              <article
+                class="relative flex h-full min-h-[230px] flex-col rounded-[1.5rem] border border-biggs-yellow/70 bg-white px-5 pb-6 pt-12 text-center text-biggs-navy shadow-[0_18px_38px_rgba(0,0,0,0.18)]">
+                <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                  <span
+                    class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-biggs-yellow text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.25)] ring-4 ring-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+                    </svg>
+                  </span>
+                </div>
+
+                <div class="flex h-full flex-col items-center justify-start">
+                  <h4 class="font-heading text-3xl font-black uppercase leading-none text-biggs-yellow">
+                    Electrical
+                  </h4>
+
+                  <p class="mt-2 font-heading text-sm font-black uppercase tracking-[0.08em] text-biggs-blue">
+                    Priority Service
+                  </p>
+
+                  <p class="mt-5 text-lg leading-8 text-slate-700">
+                    Inspection, protection, and repair savings.
+                  </p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <!-- CTA Panel -->
+          <div
+            class="mx-auto mt-8 max-w-[1280px] rounded-[1.5rem] border border-white/20 bg-white/8 px-5 py-6 text-white shadow-[0_20px_48px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:px-7 lg:px-8">
+
+            <div class="grid gap-6 xl:grid-cols-[auto_1fr_auto] xl:items-center">
+
+              <div class="flex justify-center xl:justify-start">
+                <span
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-biggs-blue text-white shadow-[0_12px_26px_rgba(35,79,145,0.22)]">
+                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="text-center xl:text-left">
+                <p class="font-heading text-2xl font-black uppercase leading-tight text-white">
+                  Not sure which plan fits your home?
+                </p>
+                <p class="mt-2 text-lg leading-8 text-white/85">
+                  Our team can help you choose the right coverage for your needs and budget.
+                </p>
+              </div>
+
+              <div class="grid gap-3 sm:grid-cols-2 xl:min-w-[460px]">
+                <a href="/about-us/membership/"
+                  class="inline-flex items-center justify-center gap-3 rounded-xl bg-biggs-yellow px-6 py-4 text-center font-heading text-lg font-black uppercase text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.25)] transition duration-200 hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-biggs-yellow/40">
+                  Learn About Memberships
+                  <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </a>
+
+                <a href="tel:9193298288"
+                  class="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-biggs-yellow bg-transparent px-6 py-4 text-center font-heading text-lg font-black uppercase text-white transition duration-200 hover:-translate-y-0.5 hover:bg-biggs-yellow hover:text-biggs-navy focus:outline-none focus:ring-4 focus:ring-biggs-blue/20"
+                  aria-label="Call Biggs at 919 329 8288">
+                  <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z" />
+                  </svg>
+                  Call (919) 329-8288
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom line -->
+          <div class="mt-7 flex items-center justify-center gap-2 text-white/85">
+            <svg class="h-5 w-5 shrink-0 text-biggs-yellow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+            </svg>
+            <p class="text-base">Membership has its benefits.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PRIORITY SERVICE AGREEMENT SECTION -->
+      <section id="priority-service-agreement"
+        class="relative overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(35,79,145,0.55),transparent_34%),linear-gradient(135deg,#001F3F_0%,#062B57_48%,#00162D_100%)] px-5 py-16 text-white md:px-10 lg:py-20 2xl:px-20"
+        aria-label="Priority Service Agreement memberships">
+
+        <!-- Background accents -->
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            class="absolute right-8 top-10 hidden h-44 w-44 opacity-25 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px] md:block">
+          </div>
+
+          <div
+            class="absolute bottom-32 left-0 hidden h-40 w-52 opacity-20 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block">
+          </div>
+
+          <div class="absolute inset-x-0 top-[32%] h-[340px] -skew-y-6 bg-biggs-blue/18 blur-[1px]"></div>
+          <div class="absolute inset-x-0 bottom-[-140px] h-[340px] -skew-y-6 bg-biggs-blue/20 blur-[1px]"></div>
+        </div>
+
+        <div class="relative z-10 mx-auto w-full max-w-[1340px]">
+
+          <!-- Top badge -->
+          <div class="flex justify-center">
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-[#42B7F5]/70 bg-white/5 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.14)] backdrop-blur-sm">
+              <span
+                class="flex h-6 w-6 items-center justify-center rounded-full border border-white/20 bg-[#001F3F] text-white">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+
+              <p class="font-heading text-[0.78rem] font-black uppercase tracking-[0.22em] text-[#42B7F5]">
+                Priority Service Agreement
+              </p>
+            </div>
+          </div>
+
+          <!-- Main heading -->
+          <div class="mx-auto mt-6 max-w-5xl text-center">
+            <h2
+              class="font-heading text-[clamp(3rem,6.6vw,5.45rem)] font-black uppercase leading-[0.88] tracking-[-0.025em] text-white">
+              Whole-Home Coverage.
+              <!-- <span class="text-[#42B7F5]">One Simple Membership Path.</span> -->
+            </h2>
+
+            <div class="mx-auto mt-5 h-1.5 w-20 rounded-full bg-[#FACB06]"></div>
+
+            <p class="mx-auto mt-5 max-w-[46rem] text-[1.05rem] leading-8 text-white/90">
+              Biggs Priority Service Agreements help keep your home’s essential systems running at their best with
+              proactive
+              maintenance, priority scheduling, repair savings, and total peace of mind.
+            </p>
+          </div>
+
+          <!-- Benefits Bar -->
+          <div
+            class="mx-auto mt-8 max-w-[930px] overflow-hidden rounded-[1.15rem] border border-[#42B7F5]/35 bg-white/[0.045] shadow-[0_18px_42px_rgba(0,0,0,0.18)] backdrop-blur-sm">
+
+            <div
+              class="grid grid-cols-2 divide-x divide-y divide-[#42B7F5]/30 sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0">
+
+              <!-- Priority Scheduling -->
+              <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                <span
+                  class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#1188E8] text-white shadow-[0_10px_22px_rgba(17,136,232,0.28)]">
+                  <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 2v4"></path>
+                    <path d="M16 2v4"></path>
+                    <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                    <path d="M3 10h18"></path>
+                    <path d="M8 14h.01"></path>
+                    <path d="M12 14h.01"></path>
+                    <path d="M16 14h.01"></path>
+                  </svg>
+                </span>
+                <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                  Priority<br class="hidden lg:block"> Scheduling
+                </p>
+              </div>
+
+              <!-- 15% Off Repairs -->
+              <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                <span
+                  class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#1CB65C] text-white shadow-[0_10px_22px_rgba(28,182,92,0.28)]">
+                  <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z"></path>
+                    <circle cx="15" cy="9" r="1"></circle>
+                    <path d="m9 15 6-6"></path>
+                  </svg>
+                </span>
+                <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                  15% Off<br class="hidden lg:block"> Repairs
+                </p>
+              </div>
+
+              <!-- Waived Diagnostic Fees -->
+              <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                <span
+                  class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#315FBC] text-white shadow-[0_10px_22px_rgba(49,95,188,0.28)]">
+                  <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path
+                      d="M9.5 9.5c0-1.2 1.1-2.2 2.7-2.2 1.5 0 2.6.8 2.6 2.1 0 1.2-.7 1.8-1.9 2.4-1 .5-1.4 1-1.4 1.9">
+                    </path>
+                    <path d="M12 17h.01"></path>
+                  </svg>
+                </span>
+                <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                  Waived<br>Diagnostic Fees
+                </p>
+              </div>
+
+              <!-- Extended Warranty -->
+              <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                <span
+                  class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#0EA6C7] text-white shadow-[0_10px_22px_rgba(14,166,199,0.28)]">
+                  <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </span>
+                <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                  Extended<br>Warranty
+                </p>
+              </div>
+
+              <!-- Emergency Service Savings -->
+              <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                <span
+                  class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#F47B20] text-white shadow-[0_10px_22px_rgba(244,123,32,0.28)]">
+                  <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 8v4l2.5 2.5"></path>
+                    <path d="M20.4 14.5A8.5 8.5 0 1 1 15 4.1"></path>
+                    <path d="M17 3v4h4"></path>
+                  </svg>
+                </span>
+                <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                  Emergency<br>Service Savings
+                </p>
+              </div>
+
+              <!-- Proactive Care -->
+              <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                <span
+                  class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#3E6DC8] text-white shadow-[0_10px_22px_rgba(62,109,200,0.28)]">
+                  <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 12h4l2-4 4 8 2-4h4"></path>
+                  </svg>
+                </span>
+                <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                  Proactive<br class="hidden lg:block"> Care
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coverage heading -->
+          <div class="mx-auto mt-8 max-w-5xl text-center">
+            <div class="flex items-center justify-center gap-4">
+              <span class="hidden h-px w-28 border-t border-dashed border-white/35 sm:block"></span>
+              <p class="font-heading text-2xl font-black uppercase tracking-normal text-[#42B7F5]">
+                Total Protection
+              </p>
+              <span class="hidden h-px w-28 border-t border-dashed border-white/35 sm:block"></span>
+            </div>
+
+            <!-- <h3
+              class="mt-2 font-heading text-[clamp(2.35rem,4.2vw,3.75rem)] font-black uppercase leading-[0.95] tracking-[-0.015em] text-white">
+              Whole Home Coverage
+            </h3> -->
+
+            <!-- <div class="mx-auto mt-4 h-1.5 w-20 rounded-full bg-[#FACB06]"></div> -->
+          </div>
+
+          <!-- House Feature -->
+          <div class="relative mx-auto mt-8 max-w-[860px]">
+
+            <!-- Left dot texture -->
+            <div
+              class="pointer-events-none absolute -left-28 top-14 hidden h-36 w-36 opacity-45 [background-image:radial-gradient(rgba(66,183,245,0.8)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block"
+              aria-hidden="true"></div>
+
+            <!-- Right dot texture -->
+            <div
+              class="pointer-events-none absolute -right-28 top-10 hidden h-36 w-36 opacity-45 [background-image:radial-gradient(rgba(66,183,245,0.8)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block"
+              aria-hidden="true"></div>
+
+            <!-- Angled panel -->
+            <div
+              class="absolute -inset-x-5 bottom-4 top-7 rotate-[-2deg] rounded-[2.25rem] border border-white/15 bg-[linear-gradient(135deg,rgba(47,103,184,0.82)_0%,rgba(35,79,145,0.56)_58%,rgba(0,31,63,0.82)_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.30)]">
+            </div>
+
+            <!-- Shield badge -->
+            <div class="absolute -left-5 top-12 z-20 hidden sm:block lg:-left-16">
+              <div class="relative">
+                <span class="absolute inset-[-1.25rem] rounded-full border border-white/15"></span>
+                <span class="absolute inset-[-2.15rem] rounded-full border border-white/10"></span>
+
+                <span
+                  class="relative inline-flex h-24 w-24 items-center justify-center rounded-full border-4 border-white/25 bg-[#234F91] text-white shadow-[0_16px_34px_rgba(0,0,0,0.30)] lg:h-28 lg:w-28">
+                  <svg class="h-12 w-12 lg:h-14 lg:w-14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Peace of mind badge -->
+            <div class="absolute -right-5 bottom-8 z-20 hidden md:block lg:-right-16">
+              <div class="relative">
+                <span class="absolute inset-[-1.25rem] rounded-full border border-white/15"></span>
+                <span class="absolute inset-[-2.15rem] rounded-full border border-white/10"></span>
+
+                <div
+                  class="relative flex h-28 w-28 items-center justify-center rounded-full border-4 border-[#234F91] bg-white text-center shadow-[0_16px_34px_rgba(0,0,0,0.28)] lg:h-32 lg:w-32">
+                  <p
+                    class="font-heading text-[0.9rem] font-black uppercase leading-[1.02] tracking-[0.04em] text-[#001F3F] lg:text-[1rem]">
+                    Total<br>
+                    <span class="text-[1.35rem] lg:text-[1.55rem]">Peace</span><br>
+                    Of<br>
+                    Mind
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image frame -->
+            <div
+              class="relative z-10 overflow-hidden rounded-[2rem] border border-white/25 bg-[linear-gradient(135deg,#2F67B8_0%,#234F91_45%,#163A6E_100%)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.32)] sm:p-4">
+
+              <div
+                class="pointer-events-none absolute inset-0 opacity-[0.13] [background-image:radial-gradient(rgba(255,255,255,0.9)_1px,transparent_1px)] [background-size:18px_18px]"
+                aria-hidden="true"></div>
+
+              <div
+                class="relative mx-auto overflow-hidden rounded-[1.55rem] border-[5px] border-white/75 bg-white/15 shadow-[inset_0_2px_14px_rgba(0,31,63,0.12),0_12px_28px_rgba(0,31,63,0.18)]">
+                <div class="absolute inset-0 bg-[#234F91]/20"></div>
+
+                <img src="assets/house2.png"
+                  alt="Illustration of a home protected by HVAC, plumbing, and electrical membership coverage"
+                  class="relative z-10 block aspect-[2.3/1] w-full object-cover">
+              </div>
+            </div>
+          </div>
+
+          <!-- Membership Timeline -->
+          <div class="mt-10">
+
+            <div
+              class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white px-5 py-8 text-biggs-navy shadow-[0_18px_42px_rgba(0,31,63,0.18)] sm:px-8 lg:px-10 lg:py-10">
+
+              <!-- Timeline Header -->
+              <div class="text-center">
+                <p class="font-heading text-xl font-black uppercase tracking-[0.08em] text-biggs-navy sm:text-2xl">
+                  Your Membership Journey
+                </p>
+              </div>
+
+              <!-- Desktop / Tablet Timeline -->
+              <div class="mt-8 hidden md:block">
+
+                <div class="relative grid grid-cols-5 gap-5 xl:gap-8">
+
+                  <!-- Connecting line -->
+                  <div class="absolute left-[10%] right-[10%] top-[2.1rem] h-0.5 bg-slate-300" aria-hidden="true">
+                  </div>
+
+                  <!-- Step 1 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-green text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M18 8h3" />
+                        <path d="M19.5 6.5v3" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      1
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Join
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Choose your plan and become a member.
+                    </p>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-blue text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M3 10h18" />
+                        <path d="M8 14h.01" />
+                        <path d="M12 14h.01" />
+                        <path d="M16 14h.01" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      2
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Schedule
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      We’ll schedule your annual tune-ups.
+                    </p>
+                  </div>
+
+                  <!-- Step 3 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-sky text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path
+                          d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-7.9 7.9l-6 6a2.1 2.1 0 0 1-3-3l6-6a6 6 0 0 1 7.9-7.9l-3.1 3.1Z" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      3
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      We Care
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Our experts keep your systems running their best.
+                    </p>
+                  </div>
+
+                  <!-- Step 4 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-orange text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                        <circle cx="15" cy="9" r="1" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      4
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      You Save
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Enjoy priority service and member savings.
+                    </p>
+                  </div>
+
+                  <!-- Step 5 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-teal text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      5
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Total Peace of Mind
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[13rem] text-base leading-6 text-slate-800">
+                      Rely on us year-round for your home.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Mobile Timeline -->
+              <div class="mt-8 grid gap-4 md:hidden">
+
+                <!-- Step 1 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 border-[#49A65A] bg-[#BFEAC9] text-[#2E7D32]">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                      <path d="M18 8h3" />
+                      <path d="M19.5 6.5v3" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-[#2E7D32]">1</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Join</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Choose your plan and become a member.</p>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M8 2v4" />
+                      <path d="M16 2v4" />
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M3 10h18" />
+                      <path d="M8 14h.01" />
+                      <path d="M12 14h.01" />
+                      <path d="M16 14h.01" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">2</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Schedule</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">We’ll schedule your annual tune-ups.</p>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path
+                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-7.9 7.9l-6 6a2.1 2.1 0 0 1-3-3l6-6a6 6 0 0 1 7.9-7.9l-3.1 3.1Z" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">3</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">We Care</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Our experts keep your systems running their best.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                      <circle cx="15" cy="9" r="1" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">4</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">You Save</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Enjoy priority service and member savings.</p>
+                  </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#1F9A4B] text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-[#1F9A4B]">5</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Total Peace of Mind</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Rely on us year-round for your home.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Bottom CTA Strip -->
+              <div
+                class="mt-8 rounded-xl bg-[#EEF5FF] px-5 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:gap-6">
+
+                <div class="flex items-center justify-center gap-4 text-center lg:justify-start lg:text-left">
+                  <span
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+                    </svg>
+                  </span>
+
+                  <p class="text-lg leading-7 text-biggs-blue">
+                    <span class="font-heading font-black">Membership has its benefits.</span>
+                    <span class="text-slate-600"> We’re here for you every step of the way.</span>
+                  </p>
+                </div>
+
+                <div class="mt-5 flex justify-center lg:mt-0">
+                  <a href="/about-us/membership/"
+                    class="inline-flex min-h-[3.25rem] items-center justify-center gap-3 rounded-lg bg-biggs-yellow px-8 font-heading text-lg font-black uppercase text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.22)] transition hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-biggs-yellow/40">
+                    View Plans
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <!-- CTA Panel -->
+          <div
+            class="mx-auto mt-8 max-w-[1280px] rounded-[1.5rem] border border-white/20 bg-white/8 px-5 py-6 text-white shadow-[0_20px_48px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:px-7 lg:px-8">
+
+            <div class="grid gap-6 xl:grid-cols-[auto_1fr_auto] xl:items-center">
+
+              <div class="flex justify-center xl:justify-start">
+                <span
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-biggs-blue text-white shadow-[0_12px_26px_rgba(35,79,145,0.22)]">
+                  <svg class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 3a7 7 0 0 0-7 7v3.5A2.5 2.5 0 0 0 7.5 16H9v-5H7v-.75a5 5 0 0 1 10 0V11h-2v5h1.5a2.5 2.5 0 0 0 2.5-2.5V10a7 7 0 0 0-7-7Z" />
+                    <path d="M7.5 11A1.5 1.5 0 0 0 6 12.5v2A1.5 1.5 0 0 0 7.5 16H9v-5H7.5Z" />
+                    <path d="M15 11v5h1.5a1.5 1.5 0 0 0 1.5-1.5v-2a1.5 1.5 0 0 0-1.5-1.5H15Z" />
+                    <path d="M16 18a3 3 0 0 1-3 3h-2v-2h2a1 1 0 0 0 1-1v-1h2v1Z" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="text-center xl:text-left">
+                <p class="font-heading text-2xl font-black uppercase leading-tight text-white">
+                  Not sure which plan fits your home?
+                </p>
+                <p class="mt-2 text-lg leading-8 text-white/85">
+                  Our team can help you choose the right coverage for your needs and budget.
+                </p>
+              </div>
+
+              <div class="grid gap-3 sm:grid-cols-2 xl:min-w-[460px]">
+                <a href="/about-us/membership/"
+                  class="inline-flex items-center justify-center gap-3 rounded-xl bg-biggs-yellow px-6 py-4 text-center font-heading text-lg font-black uppercase text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.25)] transition duration-200 hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-biggs-yellow/40">
+                  Learn About Memberships
+                  <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </a>
+
+                <a href="tel:9193298288"
+                  class="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-biggs-yellow bg-transparent px-6 py-4 text-center font-heading text-lg font-black uppercase text-white transition duration-200 hover:-translate-y-0.5 hover:bg-biggs-yellow hover:text-biggs-navy focus:outline-none focus:ring-4 focus:ring-biggs-blue/20"
+                  aria-label="Call Biggs at 919 329 8288">
+                  <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z" />
+                  </svg>
+                  Call (919) 329-8288
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom line -->
+          <div class="mt-7 flex items-center justify-center gap-2 text-white/85">
+            <svg class="h-5 w-5 shrink-0 text-biggs-yellow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+            </svg>
+            <p class="text-base">Membership has its benefits.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Redsign 2 Column PRIORITY SERVICE AGREEMENT SECTION -->
+      <section id="priority-service-agreement"
+        class="relative overflow-hidden bg-[radial-gradient(circle_at_50%_0%,rgba(35,79,145,0.55),transparent_34%),linear-gradient(135deg,#001F3F_0%,#062B57_48%,#00162D_100%)] px-5 py-16 text-white md:px-10 lg:py-20 2xl:px-20"
+        aria-label="Priority Service Agreement memberships">
+
+        <!-- Background accents -->
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            class="absolute right-8 top-10 hidden h-44 w-44 opacity-25 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px] md:block">
+          </div>
+
+          <div
+            class="absolute bottom-32 left-0 hidden h-40 w-52 opacity-20 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block">
+          </div>
+
+          <div class="absolute inset-x-0 top-[32%] h-[340px] -skew-y-6 bg-biggs-blue/18 blur-[1px]"></div>
+          <div class="absolute inset-x-0 bottom-[-140px] h-[340px] -skew-y-6 bg-biggs-blue/20 blur-[1px]"></div>
+        </div>
+
+        <div class="relative z-10 mx-auto w-full max-w-[1540px]">
+
+          <!-- Top Content / Feature Layout -->
+          <div
+            class="grid gap-12 xl:items-center xl:justify-center xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:gap-0">
+
+            <!-- LEFT CONTENT -->
+            <div class="text-center xl:text-left">
+
+              <!-- Eyebrow -->
+              <div
+                class="inline-flex items-center gap-3 rounded-full border border-[#42B7F5]/60 bg-white/5 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,0.12)] backdrop-blur-sm sm:px-5">
+                <span
+                  class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-biggs-yellow text-biggs-navy">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+
+                <p class="font-heading text-sm font-black uppercase tracking-[0.18em] text-[#42B7F5] sm:text-base">
+                  Priority Service Agreement
+                </p>
+              </div>
+
+              <!-- Heading -->
+              <h2
+                class="mx-auto mt-7 max-w-[12ch] font-heading text-[clamp(3rem,8vw,5.6rem)] font-black uppercase leading-[0.9] tracking-[-0.03em] text-white xl:mx-0 xl:max-w-[13ch]">
+                Whole-Home Protection.
+                <!-- <span class="block text-[#42B7F5]">One Simple Membership Path.</span> -->
+              </h2>
+
+              <div class="mx-auto mt-5 h-1.5 w-20 rounded-full bg-biggs-yellow xl:mx-0"></div>
+
+              <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/90 sm:text-xl xl:mx-0 xl:max-w-[42rem]">
+                Biggs Priority Service Agreements help keep your home’s essential systems running at their best with
+                proactive
+                maintenance, priority scheduling, repair savings, and total peace of mind.
+              </p>
+
+              <!-- Benefits Bar -->
+              <div
+                class="mx-auto mt-8 max-w-[930px] overflow-hidden rounded-[1.15rem] border border-[#42B7F5]/35 bg-white/[0.045] shadow-[0_18px_42px_rgba(0,0,0,0.18)] backdrop-blur-sm">
+
+                <div
+                  class="grid grid-cols-2 divide-x divide-y divide-[#42B7F5]/30 sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0">
+
+                  <!-- Priority Scheduling -->
+                  <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                    <span
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#1188E8] text-white shadow-[0_10px_22px_rgba(17,136,232,0.28)]">
+                      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 2v4"></path>
+                        <path d="M16 2v4"></path>
+                        <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                        <path d="M3 10h18"></path>
+                        <path d="M8 14h.01"></path>
+                        <path d="M12 14h.01"></path>
+                        <path d="M16 14h.01"></path>
+                      </svg>
+                    </span>
+                    <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                      Priority<br class="hidden lg:block"> Scheduling
+                    </p>
+                  </div>
+
+                  <!-- 15% Off Repairs -->
+                  <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                    <span
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#1CB65C] text-white shadow-[0_10px_22px_rgba(28,182,92,0.28)]">
+                      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z"></path>
+                        <circle cx="15" cy="9" r="1"></circle>
+                        <path d="m9 15 6-6"></path>
+                      </svg>
+                    </span>
+                    <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                      15% Off<br class="hidden lg:block"> Repairs
+                    </p>
+                  </div>
+
+                  <!-- Waived Diagnostic Fees -->
+                  <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                    <span
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#315FBC] text-white shadow-[0_10px_22px_rgba(49,95,188,0.28)]">
+                      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path
+                          d="M9.5 9.5c0-1.2 1.1-2.2 2.7-2.2 1.5 0 2.6.8 2.6 2.1 0 1.2-.7 1.8-1.9 2.4-1 .5-1.4 1-1.4 1.9">
+                        </path>
+                        <path d="M12 17h.01"></path>
+                      </svg>
+                    </span>
+                    <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                      Waived<br>Diagnostic Fees
+                    </p>
+                  </div>
+
+                  <!-- Extended Warranty -->
+                  <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                    <span
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#0EA6C7] text-white shadow-[0_10px_22px_rgba(14,166,199,0.28)]">
+                      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                      </svg>
+                    </span>
+                    <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                      Extended<br>Warranty
+                    </p>
+                  </div>
+
+                  <!-- Emergency Service Savings -->
+                  <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                    <span
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#F47B20] text-white shadow-[0_10px_22px_rgba(244,123,32,0.28)]">
+                      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 8v4l2.5 2.5"></path>
+                        <path d="M20.4 14.5A8.5 8.5 0 1 1 15 4.1"></path>
+                        <path d="M17 3v4h4"></path>
+                      </svg>
+                    </span>
+                    <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                      Emergency<br>Service Savings
+                    </p>
+                  </div>
+
+                  <!-- Proactive Care -->
+                  <div class="flex min-h-[112px] flex-col items-center justify-center gap-3 px-3 py-4 text-center">
+                    <span
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#3E6DC8] text-white shadow-[0_10px_22px_rgba(62,109,200,0.28)]">
+                      <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 12h4l2-4 4 8 2-4h4"></path>
+                      </svg>
+                    </span>
+                    <p class="font-heading text-[0.9rem] font-black uppercase leading-tight text-white">
+                      Proactive<br class="hidden lg:block"> Care
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <!-- RIGHT HOUSE FEATURE -->
+            <div>
+
+              <!-- Feature Image Card -->
+              <div class="hidden relative mx-auto mt-8 max-w-[46rem] xl:block xl:mt-0 xl:max-w-[32rem]">
+
+                <!-- Angled blue panel behind image -->
+                <div
+                  class="absolute -inset-x-4 top-8 bottom-6 rotate-[-2deg] rounded-[2rem] border border-white/15 bg-[linear-gradient(135deg,rgba(47,103,184,0.75)_0%,rgba(35,79,145,0.5)_55%,rgba(0,31,63,0.75)_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.28)]">
+                </div>
+
+                <!-- Dot accents -->
+                <div
+                  class="pointer-events-none absolute -right-10 top-16 hidden h-36 w-36 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.7)_1.5px,transparent_1.5px)] [background-size:18px_18px] md:block"
+                  aria-hidden="true"></div>
+
+                <!-- Shield badge -->
+                <div class="absolute -left-3 top-10 z-20 hidden sm:block xl:-left-10 xl:top-12">
+                  <div class="relative">
+                    <div class="absolute inset-[-1.25rem] rounded-full border border-white/15"></div>
+                    <div class="absolute inset-[-2.25rem] rounded-full border border-white/10"></div>
+
+                    <span
+                      class="relative inline-flex h-20 w-20 items-center justify-center rounded-full border-4 border-white/30 bg-biggs-blue text-white shadow-[0_16px_34px_rgba(0,0,0,0.28)] xl:h-24 xl:w-24">
+                      <svg class="h-10 w-10 xl:h-12 xl:w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Peace badge -->
+                <div class="absolute -right-2 bottom-8 z-20 hidden md:block xl:-right-10 xl:bottom-12">
+                  <div class="relative">
+                    <div class="absolute inset-[-1.25rem] rounded-full border border-white/15"></div>
+                    <div class="absolute inset-[-2.25rem] rounded-full border border-white/10"></div>
+
+                    <div
+                      class="relative flex h-24 w-24 items-center justify-center rounded-full border-4 border-biggs-blue bg-white text-center shadow-[0_16px_34px_rgba(0,0,0,0.25)] xl:h-28 xl:w-28">
+                      <p
+                        class="font-heading text-[0.86rem] font-black uppercase leading-[1.05] tracking-[0.04em] text-biggs-navy xl:text-[0.95rem]">
+                        Total<br>
+                        <span class="text-[1.25rem] xl:text-[1.45rem]">Peace</span><br>
+                        Of<br>
+                        Mind
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Main image frame -->
+                <div
+                  class="relative z-10 overflow-hidden rounded-[1.75rem] border border-white/25 bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0)_52%),linear-gradient(135deg,#2F67B8_0%,#234F91_45%,#163A6E_100%)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.30)] sm:p-4">
+
+                  <div
+                    class="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:radial-gradient(rgba(255,255,255,0.9)_1px,transparent_1px)] [background-size:18px_18px]"
+                    aria-hidden="true"></div>
+
+                  <div
+                    class="relative mx-auto flex aspect-square w-full items-center justify-center overflow-hidden rounded-[1.35rem] border-4 border-white/70 bg-white/15 shadow-[inset_0_2px_14px_rgba(0,31,63,0.12),0_12px_28px_rgba(0,31,63,0.18)]">
+
+                    <div class="absolute inset-0 h-full w-full bg-biggs-blue/20"></div>
+
+                    <img class="relative z-10 h-full w-full object-cover" src="assets/house2.png"
+                      alt="Illustration of a home protected by HVAC, plumbing, and electrical membership coverage">
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+          <!-- Coverage heading -->
+          <div class="mx-auto mt-8 max-w-5xl text-center xl:mt-14">
+            <div class="flex items-center justify-center gap-4">
+              <span class="hidden h-px w-28 border-t border-dashed border-white/35 sm:block"></span>
+              <p class="font-heading text-2xl font-black uppercase tracking-normal text-[#42B7F5]">
+                Total Protection
+              </p>
+              <span class="hidden h-px w-28 border-t border-dashed border-white/35 sm:block"></span>
+            </div>
+
+            <!-- <h3
+              class="mt-2 font-heading text-[clamp(2.35rem,4.2vw,3.75rem)] font-black uppercase leading-[0.95] tracking-[-0.015em] text-white">
+              Whole Home Coverage
+            </h3> -->
+
+            <div class="mx-auto mt-4 h-1.5 w-20 rounded-full bg-[#FACB06]"></div>
+          </div>
+
+          <!-- House Feature -->
+          <div class="relative mx-auto mt-8 max-w-[860px] xl:hidden">
+
+            <!-- Left dot texture -->
+            <div
+              class="pointer-events-none absolute -left-28 top-14 hidden h-36 w-36 opacity-45 [background-image:radial-gradient(rgba(66,183,245,0.8)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block"
+              aria-hidden="true"></div>
+
+            <!-- Right dot texture -->
+            <div
+              class="pointer-events-none absolute -right-28 top-10 hidden h-36 w-36 opacity-45 [background-image:radial-gradient(rgba(66,183,245,0.8)_1.5px,transparent_1.5px)] [background-size:18px_18px] lg:block"
+              aria-hidden="true"></div>
+
+            <!-- Angled panel -->
+            <div
+              class="absolute -inset-x-5 bottom-4 top-7 rotate-[-2deg] rounded-[2.25rem] border border-white/15 bg-[linear-gradient(135deg,rgba(47,103,184,0.82)_0%,rgba(35,79,145,0.56)_58%,rgba(0,31,63,0.82)_100%)] shadow-[0_24px_60px_rgba(0,0,0,0.30)]">
+            </div>
+
+            <!-- Shield badge -->
+            <div class="absolute -left-5 top-12 z-20 hidden sm:block lg:-left-16">
+              <div class="relative">
+                <span class="absolute inset-[-1.25rem] rounded-full border border-white/15"></span>
+                <span class="absolute inset-[-2.15rem] rounded-full border border-white/10"></span>
+
+                <span
+                  class="relative inline-flex h-24 w-24 items-center justify-center rounded-full border-4 border-white/25 bg-[#234F91] text-white shadow-[0_16px_34px_rgba(0,0,0,0.30)] lg:h-28 lg:w-28">
+                  <svg class="h-12 w-12 lg:h-14 lg:w-14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Peace of mind badge -->
+            <div class="absolute -right-5 bottom-8 z-20 hidden md:block lg:-right-16">
+              <div class="relative">
+                <span class="absolute inset-[-1.25rem] rounded-full border border-white/15"></span>
+                <span class="absolute inset-[-2.15rem] rounded-full border border-white/10"></span>
+
+                <div
+                  class="relative flex h-28 w-28 items-center justify-center rounded-full border-4 border-[#234F91] bg-white text-center shadow-[0_16px_34px_rgba(0,0,0,0.28)] lg:h-32 lg:w-32">
+                  <p
+                    class="font-heading text-[0.9rem] font-black uppercase leading-[1.02] tracking-[0.04em] text-[#001F3F] lg:text-[1rem]">
+                    Total<br>
+                    <span class="text-[1.35rem] lg:text-[1.55rem]">Peace</span><br>
+                    Of<br>
+                    Mind
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image frame -->
+            <div
+              class="relative z-10 overflow-hidden rounded-[2rem] border border-white/25 bg-[linear-gradient(135deg,#2F67B8_0%,#234F91_45%,#163A6E_100%)] p-3 shadow-[0_24px_60px_rgba(0,0,0,0.32)] sm:p-4">
+
+              <div
+                class="pointer-events-none absolute inset-0 opacity-[0.13] [background-image:radial-gradient(rgba(255,255,255,0.9)_1px,transparent_1px)] [background-size:18px_18px]"
+                aria-hidden="true"></div>
+
+              <div
+                class="relative mx-auto overflow-hidden rounded-[1.55rem] border-[5px] border-white/75 bg-white/15 shadow-[inset_0_2px_14px_rgba(0,31,63,0.12),0_12px_28px_rgba(0,31,63,0.18)]">
+                <div class="absolute inset-0 bg-[#234F91]/20"></div>
+
+                <img src="assets/house2.png"
+                  alt="Illustration of a home protected by HVAC, plumbing, and electrical membership coverage"
+                  class="relative z-10 block aspect-[2.3/1] w-full object-cover">
+              </div>
+            </div>
+          </div>
+
+          <!-- Membership Timeline -->
+          <div class="mt-10">
+
+            <div
+              class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white px-5 py-8 text-biggs-navy shadow-[0_18px_42px_rgba(0,31,63,0.18)] sm:px-8 lg:px-10 lg:py-10">
+
+              <!-- Timeline Header -->
+              <div class="text-center">
+                <p class="font-heading text-xl font-black uppercase tracking-[0.08em] text-biggs-navy sm:text-2xl">
+                  Your Membership Journey
+                </p>
+              </div>
+
+              <!-- Desktop / Tablet Timeline -->
+              <div class="mt-8 hidden md:block">
+
+                <div class="relative grid grid-cols-5 gap-5 xl:gap-8">
+
+                  <!-- Connecting line -->
+                  <div class="absolute left-[10%] right-[10%] top-[2.1rem] h-0.5 bg-slate-300" aria-hidden="true">
+                  </div>
+
+                  <!-- Step 1 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-green text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M18 8h3" />
+                        <path d="M19.5 6.5v3" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      1
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Join
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Choose your plan and become a member.
+                    </p>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-blue text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M3 10h18" />
+                        <path d="M8 14h.01" />
+                        <path d="M12 14h.01" />
+                        <path d="M16 14h.01" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      2
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Schedule
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      We’ll schedule your annual tune-ups.
+                    </p>
+                  </div>
+
+                  <!-- Step 3 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-sky text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path
+                          d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-7.9 7.9l-6 6a2.1 2.1 0 0 1-3-3l6-6a6 6 0 0 1 7.9-7.9l-3.1 3.1Z" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      3
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      We Care
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Our experts keep your systems running their best.
+                    </p>
+                  </div>
+
+                  <!-- Step 4 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-orange text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                        <circle cx="15" cy="9" r="1" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      4
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      You Save
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Enjoy priority service and member savings.
+                    </p>
+                  </div>
+
+                  <!-- Step 5 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-teal text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      5
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Total Peace of Mind
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[13rem] text-base leading-6 text-slate-800">
+                      Rely on us year-round for your home.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Mobile Timeline -->
+              <div class="mt-8 grid gap-4 md:hidden">
+
+                <!-- Step 1 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 border-[#49A65A] bg-[#BFEAC9] text-[#2E7D32]">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                      <path d="M18 8h3" />
+                      <path d="M19.5 6.5v3" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-[#2E7D32]">1</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Join</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Choose your plan and become a member.</p>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M8 2v4" />
+                      <path d="M16 2v4" />
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M3 10h18" />
+                      <path d="M8 14h.01" />
+                      <path d="M12 14h.01" />
+                      <path d="M16 14h.01" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">2</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Schedule</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">We’ll schedule your annual tune-ups.</p>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path
+                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-7.9 7.9l-6 6a2.1 2.1 0 0 1-3-3l6-6a6 6 0 0 1 7.9-7.9l-3.1 3.1Z" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">3</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">We Care</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Our experts keep your systems running their best.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                      <circle cx="15" cy="9" r="1" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">4</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">You Save</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Enjoy priority service and member savings.</p>
+                  </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#1F9A4B] text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-[#1F9A4B]">5</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Total Peace of Mind</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Rely on us year-round for your home.</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Bottom CTA Strip -->
+              <div
+                class="mt-8 rounded-xl bg-[#EEF5FF] px-5 py-4 sm:px-6 xl:flex xl:items-center xl:justify-between xl:gap-6">
+
+                <div class="flex items-center justify-center gap-4 text-center xl:justify-start xl:text-left">
+                  <span
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+                    </svg>
+                  </span>
+
+                  <p class="text-lg leading-7 text-biggs-blue">
+                    <span class="font-heading font-black">Membership has its benefits.</span>
+                    <span class="text-slate-600"> We’re here for you every step of the way.</span>
+                  </p>
+                </div>
+
+                <div class="mt-5 flex justify-center lg:mt-0">
+                  <a href="/about-us/membership/"
+                    class="inline-flex min-h-[3.25rem] items-center justify-center gap-3 rounded-lg bg-biggs-yellow px-8 font-heading text-lg font-black uppercase text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.22)] transition hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-biggs-yellow/40">
+                    View Membership Plans
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <!-- CTA Panel -->
+          <div
+            class="mx-auto mt-8 max-w-6xl rounded-[1.5rem] border border-white/20 bg-white/8 px-5 py-6 text-white shadow-[0_20px_48px_rgba(0,0,0,0.22)] backdrop-blur-sm sm:px-7 lg:px-8">
+
+            <div class="grid gap-6 xl:grid-cols-[auto_1fr_auto] xl:items-center">
+
+              <div class="flex justify-center xl:justify-start">
+                <span
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-biggs-blue text-white shadow-[0_12px_26px_rgba(35,79,145,0.22)]">
+                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </span>
+              </div>
+
+              <div class="text-center xl:text-left">
+                <p class="font-heading text-2xl font-black uppercase leading-tight text-white">
+                  Not sure which plan fits your home?
+                </p>
+                <p class="mt-2 text-lg leading-8 text-white/85">
+                  Our team can help you choose the right coverage for your needs and budget.
+                </p>
+              </div>
+
+              <div class="text-center">
+
+                <a href="tel:9193298288"
+                  class="inline-flex items-center justify-center gap-3 rounded-xl border-2 border-biggs-yellow bg-transparent px-6 py-4 text-center font-heading text-lg font-black uppercase text-white transition duration-200 hover:-translate-y-0.5 hover:bg-biggs-yellow hover:text-biggs-navy focus:outline-none focus:ring-4 focus:ring-biggs-blue/20"
+                  aria-label="Call Biggs at 919 329 8288">
+                  <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z" />
+                  </svg>
+                  Call (919) 329-8288
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom line -->
+          <div class="mt-7 flex items-center justify-center gap-2 text-white/85">
+            <svg class="h-5 w-5 shrink-0 text-biggs-yellow" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+            </svg>
+            <p class="text-base">Membership has its benefits.</p>
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- Placeholder for future page sections. -->
+      <section id="next-section" class="pt-20 test bg-white pb-20 text-biggs-navy">
+        <div class="container mx-auto w-full px-5 lg:px-10">
+          <p class="font-heading text-3xl font-black uppercase tracking-tight sm:text-4xl lg:text-5xl">
+            Future website sections will start here.
+          </p>
+
+          <p class="font-body text-3xl tracking-normal leading-normal">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in lorem at nisi accumsan iaculis vel et
+            augue.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const header = document.getElementById('siteHeader');
+
+    function updateHeaderState() {
+      if (window.scrollY > 8) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+  </script>
+  <script>
+    function scrollReviews(direction) {
+      const track = document.getElementById('reviewsTrack');
+
+      if (!track) return;
+
+      const firstCard = track.querySelector('article');
+      const cardWidth = firstCard ? firstCard.offsetWidth : 300;
+      const gap = 16;
+
+      track.scrollBy({
+        left: direction * (cardWidth + gap),
+        behavior: 'smooth'
+      });
+    }
+  </script>
+</body>
+
+</html>
