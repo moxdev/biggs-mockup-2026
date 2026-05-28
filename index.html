@@ -29,6 +29,16 @@
       --color-biggs-yellow: #FACB06;
       --color-biggs-green: #2E7D32;
 
+      /* Custom icon colors */
+      /* bright sky blue, used for Air Conditioning */
+      --color-biggs-sky : #009FE3;
+      /* teal, used for Water Filtration */
+      --color-biggs-teal : #00A6A6;
+      /* orange, used for Water Heaters */
+      --color-biggs-orange : #F58220;
+      /* medium steel blue, used for Drain Cleaning */
+      --color-biggs-steel : #3B6EA8;
+
       /* Custom 3xl breakpoint requested for wide screens */
       --breakpoint-3xl: 120rem;
 
@@ -1294,148 +1304,296 @@
             </div>
           </div>
 
-          <!-- Plan cards -->
-          <div
-            class="mx-auto mt-15 grid w-full max-w-[1280px] auto-rows-fr grid-cols-1 gap-x-6 gap-y-10 min-[560px]:grid-cols-2 lg:grid-cols-4 lg:gap-x-7">
+          <!-- Membership Timeline -->
+          <div class="mt-10">
 
-            <!-- Premier -->
-            <article
-              class="relative flex h-full min-h-[245px] flex-col rounded-[1.25rem] border-b-[8px] border-b-[#2E7D32] bg-white px-5 pb-6 pt-14 text-center text-[#001F3F] shadow-[0_16px_34px_rgba(0,0,0,0.20)] lg:min-h-[260px]">
+            <div
+              class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white px-5 py-8 text-biggs-navy shadow-[0_18px_42px_rgba(0,31,63,0.18)] sm:px-8 lg:px-10 lg:py-10">
 
-              <!-- Ribbon clipped separately so the card icon can still overflow -->
-              <div
-                class="pointer-events-none absolute left-0 top-0 z-20 h-[120px] w-[120px] overflow-hidden rounded-tl-[1.25rem]">
-                <div
-                  class="absolute left-[-50px] top-[11px] w-[165px] -rotate-45 bg-[#FACB06] py-2 text-center font-heading text-[0.78rem] font-black uppercase leading-none tracking-[0.06em] text-[#001F3F] shadow-md">
-                  Most<br>Popular
+              <!-- Timeline Header -->
+              <div class="text-center">
+                <p class="font-heading text-xl font-black uppercase tracking-[0.08em] text-biggs-navy sm:text-2xl">
+                  Your Membership Journey
+                </p>
+              </div>
+
+              <!-- Desktop / Tablet Timeline -->
+              <div class="mt-8 hidden md:block">
+
+                <div class="relative grid grid-cols-5 gap-5 xl:gap-8">
+
+                  <!-- Connecting line -->
+                  <div class="absolute left-[10%] right-[10%] top-[2.1rem] h-0.5 bg-slate-300" aria-hidden="true">
+                  </div>
+
+                  <!-- Step 1 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-green text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                        <path d="M18 8h3" />
+                        <path d="M19.5 6.5v3" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      1
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Join
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Choose your plan and become a member.
+                    </p>
+                  </div>
+
+                  <!-- Step 2 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-blue text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M3 10h18" />
+                        <path d="M8 14h.01" />
+                        <path d="M12 14h.01" />
+                        <path d="M16 14h.01" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      2
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Schedule
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      We’ll schedule your annual tune-ups.
+                    </p>
+                  </div>
+
+                  <!-- Step 3 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-sky text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path
+                          d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-7.9 7.9l-6 6a2.1 2.1 0 0 1-3-3l6-6a6 6 0 0 1 7.9-7.9l-3.1 3.1Z" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      3
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      We Care
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Our experts keep your systems running their best.
+                    </p>
+                  </div>
+
+                  <!-- Step 4 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-orange text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                        <circle cx="15" cy="9" r="1" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      4
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      You Save
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[12rem] text-base leading-6 text-slate-600">
+                      Enjoy priority service and member savings.
+                    </p>
+                  </div>
+
+                  <!-- Step 5 -->
+                  <div class="relative z-10 text-center">
+                    <div
+                      class="mx-auto flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-biggs-teal text-white shadow-sm">
+                      <svg class="h-9 w-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+                    </div>
+
+                    <p class="mt-3 font-heading text-2xl font-black leading-none text-biggs-navy">
+                      5
+                    </p>
+
+                    <h4 class="mt-1 font-heading text-lg font-black uppercase leading-tight text-biggs-navy">
+                      Total Peace of Mind
+                    </h4>
+
+                    <p class="mx-auto mt-3 max-w-[13rem] text-base leading-6 text-slate-800">
+                      Rely on us year-round for your home.
+                    </p>
+                  </div>
+
                 </div>
               </div>
 
-              <!-- Icon -->
-              <div class="absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
-                <span
-                  class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#2E7D32] text-white shadow-[0_10px_22px_rgba(0,0,0,0.22)]">
-                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z">
-                    </path>
-                  </svg>
-                </span>
+              <!-- Mobile Timeline -->
+              <div class="mt-8 grid gap-4 md:hidden">
+
+                <!-- Step 1 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-4 border-[#49A65A] bg-[#BFEAC9] text-[#2E7D32]">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                      <path d="M18 8h3" />
+                      <path d="M19.5 6.5v3" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-[#2E7D32]">1</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Join</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Choose your plan and become a member.</p>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M8 2v4" />
+                      <path d="M16 2v4" />
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M3 10h18" />
+                      <path d="M8 14h.01" />
+                      <path d="M12 14h.01" />
+                      <path d="M16 14h.01" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">2</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Schedule</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">We’ll schedule your annual tune-ups.</p>
+                  </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path
+                        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-7.9 7.9l-6 6a2.1 2.1 0 0 1-3-3l6-6a6 6 0 0 1 7.9-7.9l-3.1 3.1Z" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">3</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">We Care</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Our experts keep your systems running their best.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div
+                    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 12V6a2 2 0 0 0-2-2h-6L4 12l8 8 8-8Z" />
+                      <circle cx="15" cy="9" r="1" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-biggs-blue">4</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">You Save</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Enjoy priority service and member savings.</p>
+                  </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                  <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#1F9A4B] text-white">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class="font-heading text-lg font-black text-[#1F9A4B]">5</p>
+                    <h4 class="font-heading text-xl font-black uppercase text-biggs-navy">Total Peace of Mind</h4>
+                    <p class="mt-1 text-base leading-6 text-slate-600">Rely on us year-round for your home.</p>
+                  </div>
+                </div>
+
               </div>
 
-              <div class="mt-2 flex h-full flex-col items-center">
-                <h4 class="font-heading text-[1.85rem] font-black uppercase leading-none text-[#001F3F] xl:text-[2rem]">
-                  Premier
-                </h4>
+              <!-- Bottom CTA Strip -->
+              <div
+                class="mt-8 rounded-xl bg-[#EEF5FF] px-5 py-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:gap-6">
 
-                <p class="mt-2 font-heading text-[1.1rem] font-black uppercase text-biggs-green">
-                  Complete Coverage
-                </p>
+                <div class="flex items-center justify-center gap-4 text-center lg:justify-start lg:text-left">
+                  <span
+                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-biggs-blue text-white">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2l2.7 5.5L21 8.4l-4.5 4.4 1.1 6.2L12 16.1 6.4 19l1.1-6.2L3 8.4l6.3-.9L12 2z" />
+                    </svg>
+                  </span>
 
-                <p class="mx-auto mt-3 max-w-[15rem] text-lg leading-normal text-slate-700">
-                  Complete coverage for total comfort and confidence.
-                </p>
+                  <p class="text-lg leading-7 text-biggs-blue">
+                    <span class="font-heading font-black">Membership has its benefits.</span>
+                    <span class="text-slate-600"> We’re here for you every step of the way.</span>
+                  </p>
+                </div>
+
+                <div class="mt-5 flex justify-center lg:mt-0">
+                  <a href="/about-us/membership/"
+                    class="inline-flex min-h-[3.25rem] items-center justify-center gap-3 rounded-lg bg-biggs-yellow px-8 font-heading text-lg font-black uppercase text-biggs-navy shadow-[0_10px_24px_rgba(250,203,6,0.22)] transition hover:-translate-y-0.5 hover:bg-yellow-300 focus:outline-none focus:ring-4 focus:ring-biggs-yellow/40">
+                    View Plans
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12h14" />
+                      <path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
+                </div>
 
               </div>
-            </article>
 
-            <!-- HVAC -->
-            <article
-              class="relative flex h-full min-h-[245px] flex-col rounded-[1.25rem] border-b-[8px] border-b-biggs-red bg-white px-5 pb-6 pt-14 text-center text-[#001F3F] shadow-[0_16px_34px_rgba(0,0,0,0.20)] lg:min-h-[260px]">
-
-              <!-- Icon -->
-              <div class="absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
-                <span
-                  class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#E00A17] text-white shadow-[0_10px_22px_rgba(0,0,0,0.22)]">
-                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 2v20"></path>
-                    <path d="M17 5l-5 5-5-5"></path>
-                    <path d="M17 19l-5-5-5 5"></path>
-                    <path d="M2 12h20"></path>
-                    <path d="M5 7l14 10"></path>
-                    <path d="M19 7 5 17"></path>
-                  </svg>
-                </span>
-              </div>
-
-              <div class="mt-2 flex h-full flex-col items-center">
-                <h4
-                  class="font-heading text-[1.85rem] font-black uppercase leading-none text-biggs-navy xl:text-[2rem]">
-                  HVAC
-                </h4>
-
-                <p class="mt-2 font-heading text-[1.1rem] font-black uppercase text-biggs-blue">
-                  Priority Service
-                </p>
-
-                <p class="mx-auto mt-3 max-w-[15rem] text-lg leading-normal text-slate-700">
-                  Comfort-system care and repair savings.
-                </p>
-              </div>
-            </article>
-
-            <!-- Plumbing -->
-            <article
-              class="relative flex h-full min-h-[245px] flex-col rounded-[1.25rem] border-b-[8px] border-b-biggs-blue bg-white px-5 pb-6 pt-14 text-center text-[#001F3F] shadow-[0_16px_34px_rgba(0,0,0,0.20)] lg:min-h-[260px]">
-
-              <!-- Icon -->
-              <div class="absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
-                <span
-                  class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#234F91] text-white shadow-[0_10px_22px_rgba(0,0,0,0.22)]">
-                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 2.8C9.2 7 7 9.5 7 13a5 5 0 0 0 10 0c0-3.5-2.2-6-5-10.2z"></path>
-                  </svg>
-                </span>
-              </div>
-
-              <div class="mt-2 flex h-full flex-col items-center">
-                <h4
-                  class="font-heading text-[1.85rem] font-black uppercase leading-none text-biggs-navy xl:text-[2rem]">
-                  Plumbing
-                </h4>
-
-                <p class="mt-2 font-heading text-[1.1rem] font-black uppercase text-biggs-blue">
-                  Priority Service
-                </p>
-
-                <p class="mx-auto mt-3 max-w-[15rem] text-lg leading-normal text-slate-700">
-                  Annual plumbing care and water-heater service.
-                </p>
-              </div>
-            </article>
-
-            <!-- Electrical -->
-            <article
-              class="relative flex h-full min-h-[245px] flex-col rounded-[1.25rem] border-b-[8px] border-b-biggs-yellow bg-white px-5 pb-6 pt-14 text-center text-[#001F3F] shadow-[0_16px_34px_rgba(0,0,0,0.20)] lg:min-h-[260px]">
-
-              <!-- Icon -->
-              <div class="absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
-                <span
-                  class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#FACB06] text-white shadow-[0_10px_22px_rgba(0,0,0,0.22)]">
-                  <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"></path>
-                  </svg>
-                </span>
-              </div>
-
-              <div class="mt-2 flex h-full flex-col items-center">
-                <h4
-                  class="font-heading text-[1.85rem] font-black uppercase leading-none text-biggs-navy xl:text-[2rem]">
-                  Electrical
-                </h4>
-
-                <p class="mt-2 font-heading text-[1.1rem] font-black uppercase text-biggs-blue">
-                  Priority Service
-                </p>
-
-                <p class="mx-auto mt-3 max-w-[15rem] text-lg leading-normal text-slate-700">
-                  Inspection, protection, and repair savings.
-                </p>
-              </div>
-            </article>
+            </div>
           </div>
+
+
 
           <!-- CTA Panel -->
           <div
@@ -1500,6 +1658,7 @@
           </div>
         </div>
       </section>
+
 
 
 
