@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "League Spartan", Arial, Helvetica, sans-serif;
+  --font-body: "Open Sans", Arial, Helvetica, sans-serif;
+
+  --color-biggs-navy: #001f3f;
+  --color-biggs-navy-dark: #00162d;
+  --color-biggs-blue: #234f91;
+  --color-biggs-red: #e00a17;
+  --color-biggs-yellow: #facb06;
+  --color-biggs-green: #2e7d32;
+  --color-biggs-unc: #42b7f5;
+
+  --color-biggs-sky: #009fe3;
+  --color-biggs-teal: #00a6a6;
+  --color-biggs-orange: #f58220;
+  --color-biggs-steel: #3b6ea8;
+
+  --breakpoint-3xl: 120rem;
+}
+
+/* Custom Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #001f3f;
+}
+
+/* Header starts transparent over hero, then becomes white on scroll. */
+.site-header {
+  background: transparent;
+  box-shadow: none;
+  transition:
+    background-color 220ms ease,
+    box-shadow 220ms ease,
+    backdrop-filter 220ms ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.nav-link,
+.menu-icon {
+  color: #ffffff;
+  transition: color 220ms ease;
+}
+
+.site-header.is-scrolled .nav-link,
+.site-header.is-scrolled .menu-icon {
+  color: #001f3f;
+}
+
+.headline-shadow {
+  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-copy-shadow {
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+.test {
+  border: 1px solid red;
+}
+
+.test-y {
+  border: 1px solid yellow;
+}
+
+.test-m {
+  border: 1px solid magenta;
+}
