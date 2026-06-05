@@ -1587,516 +1587,500 @@
         <!-- SERVICE AREA SECTION -->
         <section
           id="service-area"
-          class="text-biggs-navy relative overflow-hidden bg-white px-5 py-16 md:px-10 lg:py-24 2xl:px-20"
-          aria-label="Service area"
+          class="relative isolate overflow-hidden bg-[#F4F8FC] px-5 py-14 sm:px-6 md:px-10 lg:py-18 xl:py-20 2xl:px-20"
+          aria-labelledby="service-area-heading"
         >
-          <!-- subtle background accents that match the existing Biggs hero/service styling -->
-          <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+          <!--
+    Design logic:
+    Full-width light background keeps this section visually lighter between stronger branded sections.
+    Content is constrained to max-w-[1540px] without placing everything inside a rounded white card.
+    Decorative elements are subtle, non-essential, and placed behind the content.
+  -->
+          <div
+            class="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+            aria-hidden="true"
+          >
             <div
-              class="bg-biggs-blue/10 absolute top-[-12rem] right-[-10rem] h-[32rem] w-[32rem] rounded-full blur-3xl"
+              class="bg-biggs-blue/10 absolute top-[-6rem] left-[-8rem] h-[320px] w-[320px] rounded-full blur-3xl"
             ></div>
             <div
-              class="bg-biggs-yellow/10 absolute bottom-[-18rem] left-[-10rem] h-[34rem] w-[34rem] rounded-full blur-3xl"
+              class="bg-biggs-yellow/20 absolute right-[-9rem] bottom-[-9rem] h-[340px] w-[340px] rounded-full blur-3xl"
             ></div>
+
             <div
-              class="absolute top-0 right-0 hidden h-full w-[34vw] bg-[linear-gradient(135deg,transparent_0%,rgba(35,79,145,0.05)_40%,transparent_75%)] lg:block"
+              class="absolute top-10 right-8 hidden h-36 w-36 [background-image:radial-gradient(rgba(250,203,6,0.65)_1.5px,transparent_1.5px)] [background-size:18px_18px] opacity-35 lg:block"
+            ></div>
+
+            <div
+              class="absolute bottom-10 left-6 hidden h-44 w-44 [background-image:radial-gradient(rgba(35,79,145,0.45)_1.5px,transparent_1.5px)] [background-size:18px_18px] opacity-20 xl:block"
             ></div>
           </div>
 
-          <div class="relative mx-auto w-full max-w-[1540px]">
-            <!-- Top Content + Map -->
+          <div class="mx-auto w-full max-w-[1540px]">
+            <!--
+      Main layout:
+      Mobile/tablet stack naturally for scannability.
+      xl and larger use a two-column editorial layout.
+      The map is contained in a panel instead of used as a background image, which prevents stretching and crop issues.
+    -->
             <div
-              class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.15fr)] lg:items-start xl:gap-14"
+              class="3xl:gap-14 grid gap-8 xl:grid-cols-[minmax(0,0.48fr)_minmax(0,0.52fr)] xl:items-center xl:gap-10"
             >
-              <!-- Left content -->
-              <div class="max-w-2xl">
-                <p
-                  class="font-heading text-biggs-yellow text-base font-black tracking-[0.18em] uppercase sm:text-xl"
-                >
-                  Our Service Area
-                </p>
+              <!-- Content column -->
+              <div class="text-biggs-navy max-w-[720px] xl:max-w-none">
+                <!-- Eyebrow -->
+                <div class="mb-5 flex items-center gap-3">
+                  <span
+                    class="bg-biggs-yellow text-biggs-navy inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full shadow-[0_10px_24px_rgba(250,203,6,0.28)]"
+                  >
+                    <svg
+                      class="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2.25c-3.73 0-6.75 3.02-6.75 6.75 0 5.06 6.75 12.75 6.75 12.75S18.75 14.06 18.75 9c0-3.73-3.02-6.75-6.75-6.75Zm0 9.25A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
+                      />
+                    </svg>
+                  </span>
 
+                  <p
+                    class="font-heading text-biggs-red text-sm font-black tracking-[0.16em] uppercase sm:text-base"
+                  >
+                    Local. Trusted. Always Nearby.
+                  </p>
+                </div>
+
+                <!-- Heading -->
                 <h2
-                  class="font-heading text-biggs-navy mt-3 text-4xl leading-[0.9] font-black tracking-tight uppercase sm:text-5xl lg:text-6xl"
+                  id="service-area-heading"
+                  class="font-heading text-biggs-navy 3xl:text-[5.25rem] max-w-[12ch] text-5xl leading-[0.86] font-black tracking-tight uppercase sm:max-w-[13ch] sm:text-6xl lg:text-7xl xl:text-[4.3rem] 2xl:text-[4.8rem]"
                 >
-                  Proudly Serving the Greater Raleigh Area and Nearby
-                  Communities
+                  We’re Proud to Serve
+                  <span class="text-biggs-blue block"
+                    >The Raleigh Metro Area</span
+                  >
                 </h2>
 
-                <div class="bg-biggs-yellow mt-6 h-1.5 w-24 rounded-full"></div>
+                <div class="bg-biggs-yellow mt-5 h-1.5 w-24 rounded-full"></div>
 
-                <p class="mt-7 max-w-xl text-lg leading-8 text-slate-700">
-                  Biggs typically serves within a
-                  <strong class="text-biggs-navy font-extrabold"
-                    >30&ndash;40 mile radius</strong
-                  >
-                  of our office at
-                  <strong class="text-biggs-navy font-extrabold"
-                    >298 Shipwash Dr, Garner, NC 27529</strong
-                  >. Our team proudly serves homeowners and businesses across
-                  the greater Raleigh / Triangle area with trusted, reliable
-                  home services.
+                <p class="mt-6 max-w-[44rem] text-lg leading-8 text-slate-700">
+                  Biggs delivers expert HVAC, plumbing, electrical, and septic
+                  services across Wake County, Johnston County, and nearby
+                  Raleigh-area communities. Our local team is close by when your
+                  home needs help.
                 </p>
 
-                <!-- Callout -->
-                <div
-                  class="border-biggs-blue/20 mt-7 rounded-2xl border bg-gradient-to-br from-white to-[#F3F8FF] p-5 shadow-[0_10px_28px_rgba(0,31,63,0.08)]"
-                >
-                  <div class="flex gap-4">
-                    <div
-                      class="bg-biggs-blue flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-white shadow-[0_8px_18px_rgba(0,31,63,0.18)]"
+                <!--
+          Trust row:
+          Stacked on mobile for comfortable reading.
+          Three columns from sm up to reduce height and keep the section compact.
+        -->
+                <div class="mt-7 grid gap-3 sm:grid-cols-3">
+                  <div
+                    class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/85 px-4 py-4 shadow-[0_8px_22px_rgba(0,31,63,0.07)] backdrop-blur-sm"
+                  >
+                    <span
+                      class="bg-biggs-blue flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white"
+                    >
+                      <svg
+                        class="h-7 w-7"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M10.8 2.7a1.8 1.8 0 0 1 2.4 0l8.1 7.3a1 1 0 0 1-1.3 1.5l-.7-.6V20a1 1 0 0 1-1 1h-4.6v-5.3h-3.4V21H5.7a1 1 0 0 1-1-1v-9.1l-.7.6A1 1 0 1 1 2.7 10l8.1-7.3Z"
+                        />
+                      </svg>
+                    </span>
+                    <p
+                      class="font-heading text-biggs-navy text-base leading-tight font-black"
+                    >
+                      Based in<br />
+                      <span class="text-biggs-blue">Garner, NC</span>
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/85 px-4 py-4 shadow-[0_8px_22px_rgba(0,31,63,0.07)] backdrop-blur-sm"
+                  >
+                    <span
+                      class="bg-biggs-blue flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white"
+                    >
+                      <svg
+                        class="h-7 w-7"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M8.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm7 0a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM8.5 13C5.4 13 3 14.7 3 17v1.2c0 .5.4.8.8.8h9.4c.5 0 .8-.4.8-.8V17c0-2.3-2.4-4-5.5-4Zm7 0c-.7 0-1.4.1-2 .3 1.5.9 2.5 2.2 2.5 3.7v1.2c0 .3-.1.6-.2.8h4.4c.5 0 .8-.4.8-.8V17c0-2.3-2.4-4-5.5-4Z"
+                        />
+                      </svg>
+                    </span>
+                    <p
+                      class="font-heading text-biggs-navy text-base leading-tight font-black"
+                    >
+                      Family-Owned<br />
+                      <span class="text-biggs-blue">Since 1996</span>
+                    </p>
+                  </div>
+
+                  <div
+                    class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/85 px-4 py-4 shadow-[0_8px_22px_rgba(0,31,63,0.07)] backdrop-blur-sm"
+                  >
+                    <span
+                      class="bg-biggs-blue flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white"
                     >
                       <svg
                         class="h-7 w-7"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="2.3"
+                        stroke-width="2.2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         aria-hidden="true"
                       >
-                        <path
-                          d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z"
-                        />
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                        <path d="m9 12 2 2 4-4" />
                       </svg>
-                    </div>
-
-                    <div>
-                      <h3
-                        class="font-heading text-biggs-navy text-xl leading-none font-black uppercase"
-                      >
-                        Don&rsquo;t see your area?
-                      </h3>
-                      <p class="mt-2 text-base leading-7 text-slate-700">
-                        We may still be able to help. Call us for more details
-                        and we&rsquo;ll be happy to check.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Mini proof points -->
-                <div class="mt-8 grid gap-5 sm:grid-cols-3">
-                  <article class="border-slate-200 sm:border-r sm:pr-5">
-                    <svg
-                      class="text-biggs-blue h-9 w-9"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
+                    </span>
+                    <p
+                      class="font-heading text-biggs-navy text-base leading-tight font-black"
                     >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                      <path d="m9 12 2 2 4-4" />
-                    </svg>
-                    <h3
-                      class="font-heading text-biggs-navy mt-3 text-lg leading-none font-black uppercase"
-                    >
-                      Local &amp; Reliable
-                    </h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-700">
-                      Proudly based in Garner and invested in our community.
+                      Serving a<br />
+                      <span class="text-biggs-blue">30–40 Mile Radius</span>
                     </p>
-                  </article>
-
-                  <article class="border-slate-200 sm:border-r sm:pr-5">
-                    <svg
-                      class="text-biggs-blue h-9 w-9"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                    <h3
-                      class="font-heading text-biggs-navy mt-3 text-lg leading-none font-black uppercase"
-                    >
-                      Fast Response
-                    </h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-700">
-                      Quick, dependable service when and where you need it.
-                    </p>
-                  </article>
-
-                  <article>
-                    <svg
-                      class="text-biggs-blue h-9 w-9"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"
-                      />
-                    </svg>
-                    <h3
-                      class="font-heading text-biggs-navy mt-3 text-lg leading-none font-black uppercase"
-                    >
-                      Trusted by Locals
-                    </h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-700">
-                      5-star service from your neighbors across the Triangle.
-                    </p>
-                  </article>
-                </div>
-
-                <!-- CTA -->
-                <div
-                  class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
-                >
-                  <a
-                    href="tel:9193298288"
-                    class="bg-biggs-yellow font-heading text-biggs-navy focus:ring-biggs-yellow/40 inline-flex items-center justify-center gap-3 rounded-lg px-7 py-5 text-xl leading-none font-black uppercase shadow-[0_10px_24px_rgba(250,203,6,0.24)] transition duration-200 hover:-translate-y-0.5 hover:bg-yellow-300 focus:ring-4 focus:outline-none"
-                  >
-                    <svg
-                      class="h-5 w-5 shrink-0"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2.4"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z"
-                      />
-                    </svg>
-                    Call Now
-                  </a>
-
-                  <div class="text-base leading-6 text-slate-700">
-                    <strong class="text-biggs-navy font-extrabold"
-                      >Talk to a local expert today.</strong
-                    ><br />
-                    We&rsquo;re ready to help.
                   </div>
                 </div>
               </div>
 
-              <!-- Map card -->
-              <div class="relative">
+              <!--
+        Map feature:
+        Contained visual panel keeps the service map useful and prevents the image from stretching across the full viewport.
+      -->
+              <aside
+                class="relative min-w-0"
+                aria-label="Raleigh Metro service area map"
+              >
                 <div
-                  class="relative mx-auto h-auto max-w-[500px] overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-[0_18px_45px_rgba(0,31,63,0.14)] lg:max-w-[700px]"
+                  class="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_20px_55px_rgba(0,31,63,0.14)]"
                 >
-                  <img
-                    src="assets/service-map@2x.webp"
-                    alt="Map showing Biggs service area around Garner, Raleigh, and nearby North Carolina communities"
-                    class="block h-full w-full rounded-2xl object-contain"
-                  />
-
                   <div
-                    class="bg-biggs-navy font-heading absolute top-7 right-7 block rounded-lg px-4 py-3 text-sm font-black tracking-wide text-white uppercase shadow-[0_10px_24px_rgba(0,31,63,0.24)] sm:block"
+                    class="grid lg:grid-cols-[minmax(190px,0.34fr)_minmax(0,0.66fr)]"
                   >
-                    30&ndash;40 Mile Radius
+                    <div
+                      class="bg-white px-5 py-6 sm:px-6 lg:flex lg:flex-col lg:justify-center"
+                    >
+                      <p
+                        class="font-heading text-biggs-blue text-3xl leading-[0.92] font-black uppercase sm:text-4xl lg:text-3xl 2xl:text-4xl"
+                      >
+                        Here for Your Neighborhood
+                      </p>
+
+                      <div
+                        class="bg-biggs-yellow mt-4 h-1.5 w-16 rounded-full"
+                      ></div>
+
+                      <p class="mt-5 text-base leading-7 text-slate-700">
+                        From regular maintenance to urgent repairs, Biggs is
+                        ready for homeowners across the Raleigh Metro.
+                      </p>
+
+                      <ul
+                        class="text-biggs-navy mt-5 space-y-3 text-sm font-bold"
+                      >
+                        <li class="flex items-center gap-3">
+                          <span
+                            class="bg-biggs-blue h-4 w-4 rounded-full"
+                          ></span>
+                          Garner headquarters
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span
+                            class="bg-biggs-blue/20 h-4 w-4 rounded-full"
+                          ></span>
+                          Wake County
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span
+                            class="bg-biggs-blue/10 h-4 w-4 rounded-full"
+                          ></span>
+                          Johnston County
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="relative bg-[#EEF5FF]">
+                      <img
+                        src="assets/service-map@2x.webp"
+                        alt="Map showing Biggs service coverage around Garner, Raleigh, Cary, Apex, Clayton, Wake Forest, Fuquay-Varina, and nearby communities"
+                        class="3xl:h-[560px] h-[260px] w-full object-cover object-center sm:h-[330px] md:h-[390px] lg:h-[430px] xl:h-[500px] 2xl:h-[520px]"
+                      />
+
+                      <div
+                        class="absolute bottom-4 left-4 rounded-xl border border-white/70 bg-white/90 px-4 py-3 shadow-[0_8px_22px_rgba(0,31,63,0.12)] backdrop-blur-sm"
+                      >
+                        <p
+                          class="font-heading text-biggs-navy text-sm font-black tracking-wide uppercase"
+                        >
+                          Raleigh Metro Coverage
+                        </p>
+                        <p class="mt-1 text-sm leading-5 text-slate-700">
+                          Wake + Johnston Counties
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </aside>
             </div>
 
-            <!-- Areas we serve card -->
-            <div
-              class="border-biggs-blue/60 from-biggs-navy to-biggs-navy-dark mt-12 overflow-hidden rounded-3xl border bg-gradient-to-br via-[#062B57] shadow-[0_24px_70px_rgba(0,31,63,0.28)]"
-            >
-              <div class="bg-biggs-yellow h-2 w-full"></div>
-
-              <div class="relative p-6 sm:p-8 lg:p-9">
-                <!-- background accents -->
-                <div
-                  class="pointer-events-none absolute inset-0 opacity-30"
-                  aria-hidden="true"
-                >
-                  <div
-                    class="absolute right-0 bottom-0 h-56 w-56 bg-[radial-gradient(circle,rgba(35,79,145,0.55),transparent_70%)]"
-                  ></div>
-                  <div
-                    class="absolute right-8 bottom-8 h-40 w-40 [background-image:radial-gradient(rgba(255,255,255,0.55)_1.2px,transparent_1.2px)] [background-size:13px_13px] opacity-40"
-                  ></div>
+            <!--
+      Popular communities:
+      This supports local SEO and gives users quick confirmation that Biggs serves nearby areas.
+      The grid uses fewer columns on mobile and more columns on large desktop screens.
+    -->
+            <div class="mt-9">
+              <div
+                class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
+              >
+                <div>
+                  <h3
+                    class="font-heading text-biggs-blue text-xl font-black tracking-wide uppercase"
+                  >
+                    Popular Communities We Serve
+                  </h3>
+                  <p class="mt-1 text-base leading-7 text-slate-700">
+                    Select a nearby city or view the full service area list.
+                  </p>
                 </div>
 
-                <div
-                  class="relative grid gap-8 lg:grid-cols-[260px_1fr] lg:items-start"
+                <p
+                  class="font-heading text-biggs-red text-sm font-black tracking-[0.12em] uppercase"
                 >
+                  Wake County • Johnston County
+                </p>
+              </div>
+
+              <ul
+                class="3xl:grid-cols-12 mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6"
+                aria-label="Popular Biggs service area communities"
+              >
+                <li>
+                  <a
+                    href="/service-area/raleigh/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Raleigh
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/cary/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Cary
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/garner/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Garner
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/apex/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Apex
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/holly-springs/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Holly Springs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/wake-forest/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Wake Forest
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/fuquay-varina/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Fuquay-Varina
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/clayton/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Clayton
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/smithfield/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Smithfield
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/knightdale/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Knightdale
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/wendell/"
+                    class="font-heading text-biggs-navy hover:border-biggs-blue/40 hover:text-biggs-blue focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-black shadow-[0_6px_16px_rgba(0,31,63,0.08)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    Wendell
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/service-area/"
+                    class="border-biggs-blue/40 bg-biggs-blue font-heading hover:bg-biggs-navy focus:ring-biggs-blue/20 3xl:text-sm block rounded-xl border px-4 py-3 text-center text-sm font-black text-white shadow-[0_8px_20px_rgba(35,79,145,0.18)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none sm:text-base"
+                  >
+                    + More
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!--
+      CTA and local reassurance:
+      CTA gives users a clear next step to the detailed Service Area page.
+      Bottom message gives the section a warm local close without adding another heavy block.
+    -->
+            <div
+              class="mt-8 grid gap-5 lg:grid-cols-[minmax(0,0.56fr)_minmax(0,0.44fr)] lg:items-stretch"
+            >
+              <div
+                class="grid gap-4 sm:grid-cols-[minmax(0,0.46fr)_minmax(0,0.54fr)]"
+              >
+                <a
+                  href="/service-area/"
+                  class="bg-biggs-blue font-heading hover:bg-biggs-navy focus:ring-biggs-blue/20 inline-flex min-h-[4.25rem] items-center justify-center gap-3 rounded-xl px-6 text-center text-lg font-black text-white uppercase shadow-[0_12px_26px_rgba(35,79,145,0.24)] transition hover:-translate-y-0.5 focus:ring-4 focus:outline-none"
+                >
+                  View All Service Areas
+                  <svg
+                    class="text-biggs-yellow h-5 w-5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </a>
+
+                <div
+                  class="flex items-center gap-4 rounded-xl border border-slate-200 bg-white/80 px-5 py-4 shadow-[0_8px_22px_rgba(0,31,63,0.06)] backdrop-blur-sm"
+                >
+                  <span
+                    class="bg-biggs-blue/10 text-biggs-blue flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
+                  >
+                    <svg
+                      class="h-7 w-7"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3.6 9h16.8" />
+                      <path d="M3.6 15h16.8" />
+                      <path d="M12 3a14 14 0 0 1 0 18" />
+                      <path d="M12 3a14 14 0 0 0 0 18" />
+                    </svg>
+                  </span>
+
+                  <p class="text-base leading-6 text-slate-700">
+                    Visit our
+                    <strong class="text-biggs-navy font-extrabold"
+                      >Service Area</strong
+                    >
+                    page for the complete list of cities and nearby communities
+                    we serve.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="border-biggs-yellow/70 relative overflow-hidden rounded-2xl border bg-[#FFF9E8] px-5 py-5 shadow-[0_12px_30px_rgba(0,31,63,0.08)] sm:px-7"
+              >
+                <div
+                  class="pointer-events-none absolute right-4 bottom-4 h-24 w-24 [background-image:radial-gradient(rgba(250,203,6,0.65)_1.5px,transparent_1.5px)] [background-size:14px_14px] opacity-45"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="relative flex gap-4">
+                  <span
+                    class="bg-biggs-yellow text-biggs-navy flex h-14 w-14 shrink-0 items-center justify-center rounded-full shadow-[0_8px_20px_rgba(250,203,6,0.22)]"
+                  >
+                    <svg
+                      class="h-8 w-8"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.9"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M8 12h.01" />
+                      <path d="M12 12h.01" />
+                      <path d="M16 12h.01" />
+                      <path
+                        d="M21 12c0 4.4-4 8-9 8a9.8 9.8 0 0 1-4-.8L3 20l1.3-3.4A7.3 7.3 0 0 1 3 12c0-4.4 4-8 9-8s9 3.6 9 8Z"
+                      />
+                    </svg>
+                  </span>
+
                   <div>
-                    <div class="flex items-center gap-4 lg:block">
-                      <div
-                        class="bg-biggs-blue flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-white shadow-[0_8px_18px_rgba(0,31,63,0.28)] lg:mb-5"
-                      >
-                        <svg
-                          class="h-9 w-9"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M12 2.25c-3.73 0-6.75 3.02-6.75 6.75 0 5.06 6.75 12.75 6.75 12.75S18.75 14.06 18.75 9c0-3.73-3.02-6.75-6.75-6.75Zm0 9.25A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"
-                          />
-                        </svg>
-                      </div>
-
-                      <div>
-                        <h3
-                          class="font-heading text-3xl leading-[0.9] font-black tracking-tight text-white uppercase sm:text-4xl"
-                        >
-                          Areas<br class="hidden lg:block" />
-                          We Serve
-                        </h3>
-                        <div
-                          class="bg-biggs-yellow mt-4 h-1.5 w-16 rounded-full"
-                        ></div>
-                      </div>
-                    </div>
-
-                    <p class="mt-5 max-w-sm text-base leading-7 text-white/82">
-                      Proudly serving these communities and nearby areas.
+                    <p
+                      class="font-heading text-biggs-navy text-xl leading-tight font-black"
+                    >
+                      We’re your neighbors, and your comfort is our commitment.
                     </p>
-                  </div>
-
-                  <div>
-                    <ul
-                      class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6"
-                      aria-label="Biggs service area towns and cities"
-                    >
-                      <li>
-                        <a
-                          href="/service-area/angier/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Angier</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/apex/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Apex</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/auburn/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Auburn</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/benson/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Benson</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/cary/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Cary</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/clayton/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Clayton</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/four-oaks/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Four Oaks</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/fuquay-varina/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Fuquay Varina</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/garner/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Garner</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/holly-springs/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Holly Springs</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/knightdale/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Knightdale</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/lillington/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Lillington</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/morrisville/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Morrisville</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/oliver/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Oliver</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/pine-level/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Pine Level</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/princeton/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Princeton</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/raleigh/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Raleigh</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/rolesville/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Rolesville</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/selma/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Selma</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/smithfield/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Smithfield</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/wake-forest/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Wake Forest</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/wendell/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Wendell</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/white-oak/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >White Oak</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/williams-crossroads/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Williams Crossroads</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/wilsons-mills/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Wilsons Mills</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/youngsville/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Youngsville</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/service-area/zebulon/"
-                          class="font-heading hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-navy block rounded-full border border-white/35 bg-white/5 px-4 py-2.5 text-center text-base font-black text-white transition hover:-translate-y-0.5"
-                          >Zebulon</a
-                        >
-                      </li>
-                    </ul>
-
-                    <div
-                      class="bg-biggs-blue mt-6 rounded-2xl border border-sky-300/35 px-5 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_12px_28px_rgba(0,31,63,0.18)] sm:flex sm:items-center sm:justify-center sm:gap-3"
-                    >
-                      <span
-                        class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white sm:mx-0 sm:mb-0"
-                      >
-                        <svg
-                          class="h-5 w-5"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2.4"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.19 18.8a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8 9.9a16 16 0 0 0 6.1 6.1l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z"
-                          />
-                        </svg>
-                      </span>
-                      <p
-                        class="font-heading text-lg leading-tight font-black tracking-wide text-white uppercase"
-                      >
-                        Don&rsquo;t see your town listed? We may still service
-                        your area. Call for details.
-                      </p>
-                    </div>
+                    <p class="mt-2 text-base leading-7 text-slate-700">
+                      Local people. Local service. Local pride.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <!-- Start review section here -->
 
         <!-- REVIEWS / REPUTATION SECTION -->
         <section
