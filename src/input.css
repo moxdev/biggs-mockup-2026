@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: "League Spartan", Arial, Helvetica, sans-serif;
-  --font-body: "Open Sans", Arial, Helvetica, sans-serif;
+  --font-heading: "League Spartan", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --color-biggs-navy: #001f3f;
-  --color-biggs-navy-dark: #00162d;
   --color-biggs-blue: #234f91;
   --color-biggs-red: #e00a17;
   --color-biggs-yellow: #facb06;
   --color-biggs-green: #2e7d32;
-  --color-biggs-unc: #42b7f5;
 
-  --color-biggs-sky: #009fe3;
-  --color-biggs-teal: #00a6a6;
-  --color-biggs-orange: #f58220;
-  --color-biggs-steel: #3b6ea8;
+  --color-deep-navy: #001f3f;
+  --color-midnight-navy: #00162d;
+  --color-soft-blue: #eaf1fa;
+  --color-pale-sky: #f4f8fd;
+  --color-warm-gold: #dfae00;
+  --color-soft-yellow: #fff7d6;
+  --color-soft-red: #fdecee;
+  --color-soft-green: #eaf5ea;
+  --color-aqua-blue: #1b8aa5;
+  --color-soft-aqua: #e8f7fa;
+  --color-border-gray: #d9e1ea;
+  --color-medium-gray: #667085;
+  --color-charcoal: #1f2937;
 
   --breakpoint-3xl: 120rem;
 }
@@ -26,43 +32,47 @@ html {
 }
 
 body {
-  margin: 0;
-  background: #001f3f;
+  font-family: "Open Sans", system-ui, sans-serif;
+  color: #1f2937;
+  background: #f4f8fd;
 }
 
-/* Header starts transparent over hero, then becomes white on scroll. */
-.site-header {
-  background: transparent;
-  box-shadow: none;
-  transition:
-    background-color 220ms ease,
-    box-shadow 220ms ease,
-    backdrop-filter 220ms ease;
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: "League Spartan", system-ui, sans-serif;
+  letter-spacing: -0.025em;
 }
 
-.site-header.is-scrolled {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(12px);
+.hero-image {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 31, 63, 0.98) 0%,
+      rgba(0, 31, 63, 0.92) 28%,
+      rgba(0, 31, 63, 0.72) 47%,
+      rgba(0, 31, 63, 0.15) 66%,
+      rgba(0, 31, 63, 0.02) 100%
+    ),
+    url("assets/hero-hvac-technician.webp");
+  background-size: cover;
+  background-position: center right;
 }
 
-.nav-link,
-.menu-icon {
-  color: #ffffff;
-  transition: color 220ms ease;
-}
-
-.site-header.is-scrolled .nav-link,
-.site-header.is-scrolled .menu-icon {
-  color: #001f3f;
-}
-
-.headline-shadow {
-  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-}
-
-.hero-copy-shadow {
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+@media (max-width: 767px) {
+  .hero-image {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(0, 31, 63, 0.98) 0%,
+        rgba(0, 31, 63, 0.94) 40%,
+        rgba(0, 31, 63, 0.7) 68%,
+        rgba(0, 31, 63, 0.35) 100%
+      ),
+      url("assets/hero-hvac-technician.webp");
+    background-position: 68% center;
+  }
 }
 
 .test {
