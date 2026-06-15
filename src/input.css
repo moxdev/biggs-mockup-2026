@@ -21,6 +21,13 @@
   --color-biggs-yellow-dark: #dfae00;
   --color-biggs-green-dark: #1f5824;
 
+  /* Alternate Design Colors */
+  --color-biggs-unc: #42b7f5;
+  --color-biggs-sky: #009fe3;
+  --color-biggs-teal: #00a6a6;
+  --color-biggs-orange: #f58220;
+  --color-biggs-steel: #3b6ea8;
+
   /* Non Brand Utility Colors */
   --color-deep-navy: #001f3f;
   --color-midnight-navy: #00162d;

@@ -162,5 +162,6 @@ _test
 # custom files #
 ###################
 #custom/
-#!custom/plugins/example
+/design-files/
+/gpt-zip/
 #!custom/example.zsh
