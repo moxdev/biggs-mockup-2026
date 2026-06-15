@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "League Spartan", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Orginal Biggs Brand Colors Do Not Use */
+  /* --color-biggs-yellow: #facb06; */
+  /* --color-biggs-red: #e00a17; */
+  /* --color-biggs-blue: #234f91; */
+  /* --color-biggs-green: #2e7d32; */
+
+  /* Biggs Brand Colors */
+  --color-biggs-blue: #1e457f;
+  --color-biggs-red: #bf0813;
+  --color-biggs-yellow: #efb800;
+  --color-biggs-green: #296f2d;
+
+  /* Dark Versions of Biggs Brand Colors */
+  --color-biggs-blue-dark: #153563;
+  --color-biggs-red-dark: #a30610;
+  --color-biggs-yellow-dark: #dfae00;
+  --color-biggs-green-dark: #1f5824;
+
+  /* Non Brand Utility Colors */
+  --color-deep-navy: #001f3f;
+  --color-midnight-navy: #00162d;
+  --color-soft-blue: #eaf1fa;
+  --color-pale-sky: #f4f8fd;
+  --color-warm-gold: #dfae00;
+  --color-soft-yellow: #fff7d6;
+  --color-soft-red: #fdecee;
+  --color-soft-green: #eaf5ea;
+  --color-aqua-blue: #1b8aa5;
+  --color-soft-aqua: #e8f7fa;
+  --color-border-gray: #d9e1ea;
+  --color-medium-gray: #667085;
+  --color-charcoal: #1f2937;
+
+  --breakpoint-3xl: 120rem;
+}
+
+/* Custom Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", system-ui, sans-serif;
+  color: #1f2937;
+  background: #f4f8fd;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: "League Spartan", system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.test {
+  border: 1px solid red;
+}
+
+.test-y {
+  border: 1px solid yellow;
+}
+
+.test-m {
+  border: 1px solid magenta;
+}
