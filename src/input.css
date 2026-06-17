@@ -3,46 +3,44 @@
 @theme {
   --font-heading: "League Spartan", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
-  /* Orginal Biggs Brand Colors Do Not Use */
-  /* --color-biggs-yellow: #facb06; */
-  /* --color-biggs-red: #e00a17; */
-  /* --color-biggs-blue: #234f91; */
-  /* --color-biggs-green: #2e7d32; */
 
-  /* Biggs Brand Colors */
+  /* Official Biggs Brand Colors */
+  /* Primary logo/web brand colors. Use for brand expression, CTAs, icons, service labels, and key highlights. Do not alter without approval. */
   --color-biggs-blue: #1e457f;
   --color-biggs-red: #bf0813;
   --color-biggs-yellow: #efb800;
   --color-biggs-green: #296f2d;
 
-  /* Dark Versions of Biggs Brand Colors */
+  /* Brand State Colors */
+  /* Darker brand variants for hover states, active states, stronger emphasis, and small contrast adjustments. Do not use as replacements for the official brand colors. */
   --color-biggs-blue-dark: #153563;
   --color-biggs-red-dark: #a30610;
   --color-biggs-yellow-dark: #dfae00;
   --color-biggs-green-dark: #1f5824;
 
-  /* Alternate Design Colors */
+  /* Brand-Aligned Dark Blue System */
+  /* Deep blue UI colors for hero overlays, dark sections, cards, panels, gradients, and white-text backgrounds. These are darker than Biggs Blue for better readability. */
+  --color-deep-navy: #12305a;
+  --color-deep-navy-dark: #0d274d;
+  --color-midnight-navy: #0d274d;
+  --color-biggs-blue-deep: #173966;
+  --color-biggs-blue-ink: #0d274d;
+
+  /* Supporting Service Accent Colors */
+  /* Additional non-logo accent colors for service-category icons and small visual distinctions. Use sparingly. Biggs Blue should remain dominant. */
   --color-biggs-unc: #42b7f5;
   --color-biggs-sky: #009fe3;
   --color-biggs-teal: #00a6a6;
   --color-biggs-orange: #f58220;
   --color-biggs-steel: #3b6ea8;
 
-  /* Non Brand Utility Colors */
-  --color-deep-navy: #001f3f;
-  --color-midnight-navy: #00162d;
+  /* Surface, Text, and Utility Colors */
+  /* Supporting colors for page backgrounds, soft section surfaces, subtle highlights, and readable body text. These should support the brand colors, not compete with them. */
   --color-soft-blue: #eaf1fa;
   --color-pale-sky: #f4f8fd;
-  --color-warm-gold: #dfae00;
-  --color-soft-yellow: #fff7d6;
-  --color-soft-red: #fdecee;
-  --color-soft-green: #eaf5ea;
-  --color-aqua-blue: #1b8aa5;
-  --color-soft-aqua: #e8f7fa;
-  --color-border-gray: #d9e1ea;
-  --color-medium-gray: #667085;
   --color-charcoal: #1f2937;
 
+  /* 4k screen size breakpoint */
   --breakpoint-3xl: 120rem;
 }
 

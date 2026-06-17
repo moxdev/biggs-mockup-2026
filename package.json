@@ -4,10 +4,17 @@
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "prettier-plugin-tailwindcss": "^0.8.0"
+    "@playwright/test": "^1.61.0",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "serve": "^14.2.6"
   },
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "serve": "serve . -l 4173",
+    "screenshots": "npm run build:css && playwright test",
+    "screenshots:section": "npm run build:css && playwright test",
+    "zip:gpt": "./scripts/create-gpt-zip.sh",
+    "zip:gpt:build": "npm run build:css && npm run zip:gpt"
   }
 }

@@ -162,6 +162,8 @@ _test
 # custom files #
 ###################
 #custom/
+#!custom/example.zsh
 /design-files/
 /gpt-zip/
-#!custom/example.zsh
+/testing/
+/test-results/
