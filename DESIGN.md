@@ -6,6 +6,14 @@ This document is a living file. Update it as new sections are designed, tested, 
 
 ---
 
+## Related Project Documents
+
+- `HOMEPAGE-BLUEPRINT.md` is the source of truth for homepage section order, SEO purpose, conversion purpose, section markers, remaining homepage build priorities, and open homepage planning questions.
+- `DESIGN.md` is the source of truth for visual design rules, colors, typography, buttons, spacing, backgrounds, cards, accessibility, and reusable component patterns.
+- `TESTING.md` is the source of truth for local build, screenshot, and responsive testing workflow.
+
+---
+
 ## 1. Brand Foundation
 
 ### Brand Name
@@ -17,6 +25,61 @@ Use:
 
 Avoid creating alternate brand names unless supplied by the client.
 
+### Brand Tagline
+
+Offical Biggs Brand tagline:
+
+- Big enough to serve, small enough to care
+
+### Website URL
+
+Current website:
+
+- https://www.biggshvac.com/
+
+### Business Type
+
+Local home services company
+
+Core Services:
+
+- HVAC
+- Plumbing
+- Electrical
+- Septic & Sewer
+
+Secondary Service:
+
+- Heating
+- Air Conditioning
+- Water Filtration
+- Drain Cleaning
+- Water Heaters
+- Hydro-Jetting
+- Solar Power
+- Generators
+
+### Main Goal of Website
+
+Generate more phone calls, appointment requests, service inquiries, and membership signups.
+
+### Secondary Goals
+
+- Build immediate trust with homeowners through reviews, credentials, local history, service guarantees, and technician professionalism.
+- Clearly communicate that Biggs offers complete home services including heating, air-conditioning, plumbing, electrical, septic, sewer, drain cleaning, and water filtration.
+- Make it easy for visitors to quickly find the service they need from any device.
+- Improve local SEO visibility for core services and service-area pages across the Raleigh Metro, Wake County, and Johnston County.
+- Increase Priority Service Agreement membership signups by explaining the value of preventive maintenance and member savings.
+- Promote high-value services such as new HVAC systems, water heaters, generators, water filtration systems, septic services, and major repairs.
+- Support emergency service conversions by making urgent phone calls easy from mobile and desktop.
+- Educate homeowners with helpful, easy-to-understand service content, FAQs, maintenance tips, and seasonal guidance.
+- Showcase Biggs as a local, family-owned & operated company that has served the area since 1996.
+- Improve lead quality by guiding users to the right service, location, and contact path before they submit a form or call.
+- Highlight financing options for larger repairs, replacements, and installations.
+- Strengthen brand consistency across the website, email, social media, and future marketing campaigns.
+- Reduce confusion by simplifying navigation, service categories, and calls to action.
+- Create a flexible website structure that can support future specials, seasonal campaigns, new service areas, and additional services.
+
 ### Brand Positioning
 
 Biggs should feel:
@@ -24,9 +87,11 @@ Biggs should feel:
 - Local
 - Reliable
 - Professional
-- Family-owned
-- Safety-focused
+- Family-owned & operated
+- Licensed
+- Local Community Focused
 - Experienced
+- Expertly Trained
 - Helpful without feeling overly corporate
 
 ### Core Brand Message
@@ -40,17 +105,78 @@ Use this idea consistently across the site:
 Use:
 
 - Since 1996
-- Locally owned
+- Locally owned & operated
 - Licensed & insured
 - Trusted by homeowners across the Raleigh Metro
 - Big enough to serve, small enough to care
+- Complete Home Services
 
 Avoid:
 
 - Overstated claims that cannot be verified
 - Generic national-brand language
 - Copy that sounds like a franchise
-- Em dashes in copy
+- Never use Em dashes in copy
+
+### Brand Voice
+
+The website copy should sound:
+
+- Clear
+- Confident
+- Helpful
+- Trustworthy
+- Local
+- Professional without feeling cold
+
+Avoid:
+
+- Overly corporate language
+- Pushy sales language
+- Generic contractor clichés
+- Long paragraphs
+- Confusing technical jargon
+- Never use Em dashes in copy
+
+### Target Audience
+
+Primary Audience:
+
+Homeowners in the Raleigh Metro area who need reliable HVAC, plumbing, electrical, septic, sewer, or water filtration service.
+
+Secondary Audiences:
+
+- Existing customers
+- PSA members
+- New homeowners
+- Real estate/property managers
+- Emergency service customers
+
+### Customer Concerns
+
+Customers may be worried about:
+
+- Cost
+- Trust
+- Technician quality
+- Speed of service
+- Emergency availability
+- Cleanliness
+- Scheduling
+- Warranties
+- Long-term reliability
+
+### Customer Motivations
+
+Customers want:
+
+- Fast response
+- Clear pricing
+- Expert service
+- Local company they can trust
+- One company for multiple home systems
+- Preventive maintenance
+- Emergency help when needed
 
 ### TODO: Add More Brand Details
 
@@ -571,43 +697,1164 @@ Use:
 
 ## 8. Buttons and CTAs
 
-### Primary CTA
+Buttons should feel strong, clear, professional, and easy to understand at a glance. The Biggs button system should support a clear hierarchy of action across light sections, dark sections, service pages, location pages, landing pages, forms, and CTA panels.
 
-Use Biggs Yellow for primary action buttons.
+The button system uses **solid colors only**. Do not use gradients for buttons. Gradients should be reserved for section backgrounds, hero overlays, CTA panels, and premium feature areas.
 
-Recommended style:
+---
+
+### Button Design Principles
+
+Use buttons to guide users toward the next best action.
+
+Buttons should be:
+
+- Easy to identify
+- Easy to tap on mobile
+- High contrast
+- Consistent across pages
+- Clear in hierarchy
+- Strong but not flashy
+- Professional and service-business appropriate
+- Usable with mouse, touch, and keyboard input
+
+Avoid:
+
+- Gradient button fills
+- Glow effects
+- Low-contrast outlines
+- Too many button colors in one section
+- Multiple competing primary CTAs in the same section
+- Small buttons that are difficult to tap on mobile
+- Hover states that are too subtle to notice
+- Hover-only content or hover-only meaning
+
+---
+
+### Button Hierarchy
+
+Use one primary CTA per major section whenever possible.
+
+Recommended hierarchy:
+
+1. **Primary CTA:** Yellow button
+2. **Secondary CTA:** Biggs Blue button or outline button
+3. **Alternative CTA:** Red or Green only when context requires it
+4. **Text Link CTA:** Inline navigation or lower-priority action
+
+---
+
+### Global Button Shape
+
+Use rounded buttons with a modern home-services feel.
+
+Recommended default radius:
 
 ```html
-bg-biggs-yellow text-biggs-blue-darkest hover:bg-biggs-yellow-dark
+rounded-xl
 ```
 
-Button text should usually be uppercase, bold, and set in League Spartan or heavy Open Sans depending on context.
+Use this for most CTA buttons.
 
-### Secondary CTA on Dark Backgrounds
+Use `rounded-lg` only for smaller utility buttons or compact nav-style buttons.
 
-Use a white or transparent outline style.
+Use `rounded-full` only for pill links, town buttons, badges, or small icon-only buttons.
+
+---
+
+### Global Button Size
+
+Most primary and secondary CTAs should be large enough to feel important and easy to tap.
+
+Recommended standard CTA sizing:
 
 ```html
-border-2 border-white/40 text-white hover:border-biggs-yellow hover:bg-white/10
+inline-flex min-h-14 items-center justify-center gap-3 rounded-xl px-6 py-4
 ```
+
+For larger feature CTAs:
+
+```html
+inline-flex min-h-[3.75rem] items-center justify-center gap-3 rounded-xl px-7
+py-5
+```
+
+For compact buttons:
+
+```html
+inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 py-3
+```
+
+Use padding for button comfort and spacing. Use `min-h` to guarantee a consistent minimum height and mobile tap target. Most primary and secondary CTAs should use both.
+
+Mobile rule:
+
+- Buttons should have at least `min-h-11`.
+- Primary CTAs should usually use `min-h-14`.
+- Full-width mobile buttons are acceptable when space is tight.
+- Small controls may use `pointer-coarse:` if they need larger touch targets.
+
+Example touch-target enhancement:
+
+```html
+pointer-coarse:min-h-12 pointer-coarse:px-5
+```
+
+Primary and secondary CTAs usually do not need `pointer-coarse:` because they already use `min-h-14`.
+
+---
+
+### Global Button Typography
+
+Button labels should usually be bold and uppercase.
+
+Recommended base:
+
+```html
+text-sm font-black tracking-wide uppercase sm:text-base
+```
+
+For larger CTAs:
+
+```html
+font-heading text-lg leading-none font-black uppercase sm:text-xl
+```
+
+Use short, action-oriented labels.
+
+Good examples:
+
+- Call Now
+- Schedule Service
+- Explore Services
+- View Services
+- Learn More
+- Emergency Service
+- View Membership Plans
+- Get Financing
+
+Avoid vague labels:
+
+- Click Here
+- Submit
+- More Info
+- Continue
+
+---
+
+### Button Interaction States
+
+Every button and CTA link should include states for mouse, touch, and keyboard users.
+
+Use:
+
+- `hover:` for desktop mouse and trackpad interaction
+- `active:` for touch, tap, and pressed states
+- `focus-visible:` for keyboard accessibility
+
+Tailwind v4 automatically scopes standard `hover:` styles to devices that support hover. This helps prevent sticky hover behavior on touch devices. Do not override this default behavior.
+
+Hover states are desktop enhancements only. Do not rely on hover to reveal important content, controls, CTA meaning, pricing, service details, or navigation.
+
+All clickable elements must be clear and understandable in their default state.
+
+Recommended global interaction pattern:
+
+```html
+transition duration-200 hover:-translate-y-0.5 active:translate-y-0
+active:scale-[0.98] focus-visible:ring-4 focus-visible:outline-none
+```
+
+Use color-specific focus rings:
+
+```html
+focus-visible:ring-biggs-yellow/40 focus-visible:ring-biggs-blue/30
+focus-visible:ring-biggs-red/30 focus-visible:ring-biggs-green/30
+```
+
+#### Interaction State Rules
+
+| State         | Purpose                                | Recommended Treatment                                            |
+| ------------- | -------------------------------------- | ---------------------------------------------------------------- |
+| Default       | Normal visible button state            | Clear color, readable text, obvious CTA                          |
+| Hover         | Desktop mouse and trackpad enhancement | Darker fill, stronger shadow, subtle lift                        |
+| Active        | Touch, tap, and pressed feedback       | Slight scale down, return lift to neutral, darker fill if useful |
+| Focus Visible | Keyboard accessibility                 | Visible ring using the appropriate brand color                   |
+
+#### Touch Device Rule
+
+Because mobile phones and tablets do not use hover the same way desktop computers do, important interaction feedback must not depend on hover alone.
+
+For touch users, use:
+
+```html
+active:scale-[0.98] active:translate-y-0
+```
+
+For keyboard users, use:
+
+```html
+focus-visible:ring-4 focus-visible:outline-none
+```
+
+For smaller touch targets, use `pointer-coarse:` only when needed:
+
+```html
+pointer-coarse:min-h-12 pointer-coarse:px-5
+```
+
+---
+
+### Global Hover Behavior
+
+Hover states should be obvious at a glance.
+
+For filled buttons, hover states should generally use:
+
+- Darker solid fill
+- Slightly stronger shadow
+- Subtle upward movement
+- No glow
+- No gradient
+
+Recommended hover motion:
+
+```html
+transition duration-200 hover:-translate-y-0.5
+```
+
+Hover states should not feel like a completely different button, but they should be clearly more active and interactive.
+
+---
+
+### Global Active Behavior
+
+Active states are especially important for mobile and tablet users.
+
+For filled buttons, active states should generally use:
+
+- Slight scale down
+- Return vertical lift to neutral
+- Same darker color used for hover, if appropriate
+- No glow
+- No layout shift
+
+Recommended active motion:
+
+```html
+active:translate-y-0 active:scale-[0.98]
+```
+
+For outline buttons, active states may add a subtle background fill:
+
+```html
+active:bg-white/15
+```
+
+or on light backgrounds:
+
+```html
+active:bg-biggs-blue active:text-white
+```
+
+---
+
+### Global Focus Behavior
+
+Every interactive button and CTA link should include a visible keyboard focus state.
+
+Use `focus-visible:` instead of only `focus:` for button patterns.
+
+Recommended focus classes:
+
+```html
+focus-visible:ring-4 focus-visible:outline-none
+```
+
+Use color-specific focus rings:
+
+```html
+focus-visible:ring-biggs-yellow/40 focus-visible:ring-biggs-blue/30
+focus-visible:ring-biggs-red/30 focus-visible:ring-biggs-green/30
+```
+
+Focus states are required for keyboard accessibility.
+
+---
+
+### Updated Base Button Pattern
+
+Use this base pattern for most primary and secondary CTA buttons:
+
+```html
+inline-flex min-h-14 items-center justify-center gap-3 rounded-xl px-6 py-4
+text-sm font-black tracking-wide uppercase
+shadow-[0_12px_26px_rgba(13,39,77,0.28)] transition duration-200
+hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(13,39,77,0.34)]
+active:translate-y-0 active:scale-[0.98] focus-visible:ring-4
+focus-visible:outline-none sm:text-base
+```
+
+Use this as the shared structural pattern, then add the appropriate background, text color, hover color, active color, and focus ring for each button type.
+
+---
+
+### Primary CTA Button
+
+Use the Primary CTA for the most important conversion action in a section.
+
+Common uses:
+
+- Call Now
+- Schedule Service
+- Get Started
+- Request Service
+
+Primary CTA default:
+
+```html
+bg-biggs-yellow text-biggs-blue-darkest
+```
+
+Primary CTA hover:
+
+```html
+hover:bg-biggs-yellow-dark hover:-translate-y-0.5
+```
+
+Primary CTA active:
+
+```html
+active:bg-biggs-yellow-dark active:translate-y-0 active:scale-[0.98]
+```
+
+Primary CTA focus:
+
+```html
+focus-visible:ring-4 focus-visible:ring-biggs-yellow/40
+focus-visible:outline-none
+```
+
+Recommended full class pattern:
+
+```html
+<a
+  href="tel:9193298288"
+  class="bg-biggs-yellow text-biggs-blue-darkest hover:bg-biggs-yellow-dark active:bg-biggs-yellow-dark focus-visible:ring-biggs-yellow/40 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl px-6 py-4 text-sm font-black tracking-wide uppercase shadow-[0_12px_26px_rgba(13,39,77,0.28)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(13,39,77,0.34)] focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] sm:text-base"
+>
+  Call Now
+</a>
+```
+
+Usage rules:
+
+- Use yellow for the highest-priority action.
+- Use only one yellow primary CTA per section when possible.
+- Yellow buttons work on both light and dark backgrounds.
+- Text should use `biggs-blue-darkest`, not black.
+- Do not use gradients on primary buttons.
+
+---
+
+### Secondary CTA Button on Light Backgrounds
+
+Use this for strong secondary actions on white, pale, or light blue backgrounds.
+
+Common uses:
+
+- Our Services
+- Explore Services
+- View Membership Plans
+- View Service Area
+
+Secondary CTA default:
+
+```html
+bg-biggs-blue text-white
+```
+
+Secondary CTA hover:
+
+```html
+hover:bg-biggs-blue-dark
+```
+
+Secondary CTA active:
+
+```html
+active:bg-biggs-blue-dark active:translate-y-0 active:scale-[0.98]
+```
+
+Secondary CTA focus:
+
+```html
+focus-visible:ring-4 focus-visible:ring-biggs-blue/30 focus-visible:outline-none
+```
+
+Recommended full class pattern:
+
+```html
+<a
+  href="/services/"
+  class="bg-biggs-blue hover:bg-biggs-blue-dark active:bg-biggs-blue-dark focus-visible:ring-biggs-blue/30 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl px-6 py-4 text-sm font-black tracking-wide text-white uppercase shadow-[0_12px_26px_rgba(13,39,77,0.24)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(13,39,77,0.32)] focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] sm:text-base"
+>
+  Explore Services
+</a>
+```
+
+Usage rules:
+
+- Use on light backgrounds when yellow is already present or when the action is secondary.
+- Avoid placing too many blue filled buttons together.
+- Blue filled buttons are preferred over red or green unless there is a service-specific reason.
+- Do not use gradients on secondary buttons.
+
+---
+
+### Secondary CTA Button on Dark Backgrounds
+
+On dark Biggs-blue backgrounds, secondary buttons should remain visible without competing with the primary yellow CTA.
+
+Recommended default:
+
+```html
+border-2 border-white/35 bg-white/5 text-white
+```
+
+Recommended hover:
+
+```html
+hover:border-biggs-yellow hover:bg-white/10
+```
+
+Recommended active:
+
+```html
+active:border-biggs-yellow active:bg-white/15 active:translate-y-0
+active:scale-[0.98]
+```
+
+Recommended focus:
+
+```html
+focus-visible:ring-4 focus-visible:ring-biggs-yellow/30
+focus-visible:outline-none
+```
+
+Recommended full class pattern:
+
+```html
+<a
+  href="/services/"
+  class="hover:border-biggs-yellow active:border-biggs-yellow focus-visible:ring-biggs-yellow/30 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border-2 border-white/35 bg-white/5 px-6 py-4 text-sm font-black tracking-wide text-white uppercase backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] active:bg-white/15 sm:text-base"
+>
+  Explore Services
+</a>
+```
+
+Usage rules:
+
+- Use this when a yellow primary CTA is already present in a dark section.
+- Keep the border visible enough to read against dark blue.
+- Use `hover:border-biggs-yellow` to connect the hover state to the brand CTA color.
+- Use `active:bg-white/15` to give touch users a clear pressed state.
+
+---
+
+### Outline Button on Light Backgrounds
+
+Use outline buttons for lower-priority actions and informational navigation.
+
+Common uses:
+
+- Learn More
+- Read More
+- About Us
+- See Details
+
+Default:
+
+```html
+border-2 border-biggs-blue bg-transparent text-biggs-blue
+```
+
+Hover:
+
+```html
+hover:bg-biggs-blue hover:text-white
+```
+
+Active:
+
+```html
+active:bg-biggs-blue active:text-white active:translate-y-0 active:scale-[0.98]
+```
+
+Focus:
+
+```html
+focus-visible:ring-4 focus-visible:ring-biggs-blue/20 focus-visible:outline-none
+```
+
+Recommended full class pattern:
+
+```html
+<a
+  href="/about-us/"
+  class="border-biggs-blue text-biggs-blue hover:bg-biggs-blue active:bg-biggs-blue focus-visible:ring-biggs-blue/20 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border-2 bg-transparent px-6 py-4 text-sm font-black tracking-wide uppercase transition duration-200 hover:-translate-y-0.5 hover:text-white hover:shadow-[0_12px_26px_rgba(13,39,77,0.18)] focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] active:text-white sm:text-base"
+>
+  Learn More
+</a>
+```
+
+Usage rules:
+
+- Use outline buttons when the action should be visible but not dominant.
+- On light backgrounds, outline buttons should usually use Biggs Blue.
+- Do not use outline buttons for the main phone CTA.
+- Make sure outline buttons still look clickable before hover.
+
+---
+
+### Outline Button on Dark Backgrounds
+
+Use for low-priority secondary actions on dark sections.
+
+Default:
+
+```html
+border-2 border-white/45 bg-transparent text-white
+```
+
+Hover option 1, subtle:
+
+```html
+hover:border-biggs-yellow hover:bg-white/10 hover:text-white
+```
+
+Hover option 2, stronger:
+
+```html
+hover:border-biggs-yellow hover:bg-biggs-yellow hover:text-biggs-blue-darkest
+```
+
+Active for subtle version:
+
+```html
+active:border-biggs-yellow active:bg-white/15 active:translate-y-0
+active:scale-[0.98]
+```
+
+Recommended subtle pattern:
+
+```html
+<a
+  href="/about-us/"
+  class="hover:border-biggs-yellow active:border-biggs-yellow focus-visible:ring-biggs-yellow/30 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border-2 border-white/45 bg-transparent px-6 py-4 text-sm font-black tracking-wide text-white uppercase transition duration-200 hover:-translate-y-0.5 hover:bg-white/10 focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] active:bg-white/15 sm:text-base"
+>
+  Learn More
+</a>
+```
+
+Usage rules:
+
+- Use subtle hover when a primary yellow CTA is nearby.
+- Use stronger yellow hover only when the outline button needs more attention.
+- Do not make every dark-section outline button turn yellow. Use judgment.
+- Keep the default border clear enough to be understood on dark backgrounds.
+
+---
+
+### Urgent / Emergency CTA Button
+
+Use red buttons only for urgent, emergency, or high-priority service needs.
+
+Common uses:
+
+- Emergency Service
+- 24/7 Emergency
+- Need Help Now
+
+Default:
+
+```html
+bg-biggs-red text-white
+```
+
+Hover:
+
+```html
+hover:bg-biggs-red-dark
+```
+
+Active:
+
+```html
+active:bg-biggs-red-dark active:translate-y-0 active:scale-[0.98]
+```
+
+Focus:
+
+```html
+focus-visible:ring-4 focus-visible:ring-biggs-red/30 focus-visible:outline-none
+```
+
+Recommended full class pattern:
+
+```html
+<a
+  href="/emergency-service/"
+  class="bg-biggs-red hover:bg-biggs-red-dark active:bg-biggs-red-dark focus-visible:ring-biggs-red/30 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl px-6 py-4 text-sm font-black tracking-wide text-white uppercase shadow-[0_12px_26px_rgba(191,8,19,0.24)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(143,6,16,0.34)] focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] sm:text-base"
+>
+  Emergency Service
+</a>
+```
+
+Usage rules:
+
+- Use red sparingly.
+- Red should mean urgency or emergency.
+- Do not use red as a general secondary CTA.
+- Avoid placing red and yellow CTAs side-by-side unless both actions are clearly different.
+- Do not use gradients on emergency buttons.
+
+---
+
+### Septic / Sewer CTA Button
+
+Use green buttons primarily for Septic/Sewer content.
+
+Common uses:
+
+- Septic Services
+- Septic & Sewer
+- Schedule Septic Service
+
+Default:
+
+```html
+bg-biggs-green text-white
+```
+
+Hover:
+
+```html
+hover:bg-biggs-green-dark
+```
+
+Active:
+
+```html
+active:bg-biggs-green-dark active:translate-y-0 active:scale-[0.98]
+```
+
+Focus:
+
+```html
+focus-visible:ring-4 focus-visible:ring-biggs-green/30
+focus-visible:outline-none
+```
+
+Recommended full class pattern:
+
+```html
+<a
+  href="/septic-sewer/"
+  class="bg-biggs-green hover:bg-biggs-green-dark active:bg-biggs-green-dark focus-visible:ring-biggs-green/30 inline-flex min-h-14 items-center justify-center gap-3 rounded-xl px-6 py-4 text-sm font-black tracking-wide text-white uppercase shadow-[0_12px_26px_rgba(41,111,45,0.24)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(31,88,36,0.34)] focus-visible:ring-4 focus-visible:outline-none active:translate-y-0 active:scale-[0.98] sm:text-base"
+>
+  Septic & Sewer
+</a>
+```
+
+Usage rules:
+
+- Use green primarily for Septic/Sewer.
+- Do not use green as a general “success” color across the website unless approved.
+- Green should appear intentionally tied to service category meaning.
+- Do not use gradients on Septic/Sewer buttons.
+
+---
 
 ### Text Link CTA
 
-Use for lower-priority links.
+Use text links for inline or lower-priority navigation.
+
+Text links should also include hover, active, and focus-visible states.
+
+Light background default:
 
 ```html
-text-biggs-blue hover:text-biggs-blue-dark border-biggs-yellow border-b-2
+text-biggs-blue
 ```
 
-### CTA Rules
+Light background hover:
 
-Primary CTAs should be visually obvious.
+```html
+hover:text-biggs-blue-dark
+```
 
-Use yellow CTAs sparingly so they remain powerful.
+Light background active:
 
-Do not use green CTAs unless the CTA is specifically tied to Septic/Sewer or a green meaning.
+```html
+active:text-biggs-blue-dark
+```
+
+Dark background default:
+
+```html
+text-white
+```
+
+Dark background hover:
+
+```html
+hover:text-biggs-yellow
+```
+
+Dark background active:
+
+```html
+active:text-biggs-yellow
+```
+
+Recommended light background pattern:
+
+```html
+<a
+  href="/services/"
+  class="group border-biggs-yellow text-biggs-blue hover:text-biggs-blue-dark active:text-biggs-blue-dark focus-visible:ring-biggs-yellow/30 inline-flex items-center gap-3 border-b-2 pb-1 text-sm font-black tracking-wide uppercase transition focus-visible:ring-4 focus-visible:outline-none sm:text-base"
+>
+  View All Services
+  <svg
+    class="h-4 w-4 transition duration-200 group-hover:translate-x-1 group-active:translate-x-0.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M5 12h14"
+      stroke="currentColor"
+      stroke-width="2.3"
+      stroke-linecap="round"
+    />
+    <path
+      d="m13 6 6 6-6 6"
+      stroke="currentColor"
+      stroke-width="2.3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</a>
+```
+
+Recommended dark background pattern:
+
+```html
+<a
+  href="/services/"
+  class="group border-biggs-yellow hover:text-biggs-yellow active:text-biggs-yellow focus-visible:ring-biggs-yellow/30 inline-flex items-center gap-3 border-b-2 pb-1 text-sm font-black tracking-wide text-white uppercase transition focus-visible:ring-4 focus-visible:outline-none sm:text-base"
+>
+  View All Services
+  <svg
+    class="h-4 w-4 transition duration-200 group-hover:translate-x-1 group-active:translate-x-0.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M5 12h14"
+      stroke="currentColor"
+      stroke-width="2.3"
+      stroke-linecap="round"
+    />
+    <path
+      d="m13 6 6 6-6 6"
+      stroke="currentColor"
+      stroke-width="2.3"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</a>
+```
+
+Usage rules:
+
+- Use text links when a full button is too heavy.
+- Text links can include an arrow.
+- Arrow icons should move slightly on hover.
+- Arrow icons should also have a small active movement for touch feedback.
+- Text links should not replace the primary CTA in high-conversion sections.
 
 ---
+
+### Icon Rules for Buttons
+
+Icons can improve recognition, but they should not be overused.
+
+Use icons for:
+
+- Phone CTAs
+- Emergency CTAs
+- Directional links
+- Service-specific CTAs
+- Membership or financing CTAs when helpful
+
+Avoid icons for every button on the page.
+
+Recommended icon sizing:
+
+```html
+h-5 w-5 shrink-0
+```
+
+For phone CTAs:
+
+```html
+h-6 w-6 shrink-0
+```
+
+Button icon placement:
+
+- Phone icons usually go before the label.
+- Arrow icons usually go after the label.
+- Service icons may go before the label if they improve clarity.
+
+Arrow hover behavior:
+
+```html
+group-hover:translate-x-1
+```
+
+Arrow active behavior:
+
+```html
+group-active:translate-x-0.5
+```
+
+Use `transition duration-200` on arrow icons.
+
+---
+
+### Button Shadows
+
+Use shadows to create depth, not glow.
+
+Primary yellow CTA shadow:
+
+```html
+shadow-[0_12px_26px_rgba(13,39,77,0.28)]
+```
+
+Primary yellow CTA hover shadow:
+
+```html
+hover:shadow-[0_16px_34px_rgba(13,39,77,0.34)]
+```
+
+Blue CTA shadow:
+
+```html
+shadow-[0_12px_26px_rgba(13,39,77,0.24)]
+```
+
+Blue CTA hover shadow:
+
+```html
+hover:shadow-[0_16px_34px_rgba(13,39,77,0.32)]
+```
+
+Red CTA shadow:
+
+```html
+shadow-[0_12px_26px_rgba(191,8,19,0.24)]
+```
+
+Red CTA hover shadow:
+
+```html
+hover:shadow-[0_16px_34px_rgba(143,6,16,0.34)]
+```
+
+Green CTA shadow:
+
+```html
+shadow-[0_12px_26px_rgba(41,111,45,0.24)]
+```
+
+Green CTA hover shadow:
+
+```html
+hover:shadow-[0_16px_34px_rgba(31,88,36,0.34)]
+```
+
+Do not use bright glow effects around buttons.
+
+Avoid:
+
+```html
+shadow-[0_0_30px_rgba(...)]
+```
+
+---
+
+### No Button Halo or Glow Effects
+
+Do not use glowing halo effects around buttons.
+
+Avoid large blurred outer shadows that make buttons look like they are glowing, floating in a haze, or surrounded by a light aura.
+
+Buttons may use clean, directional shadows for subtle depth, but the shadow should feel natural and grounded.
+
+Avoid patterns like:
+
+```html
+shadow-[0_0_30px_rgba(...)] shadow-[0_0_40px_rgba(...)]
+shadow-[0_20px_60px_rgba(...)]
+```
+
+Preferred button depth should be subtle or minimal:
+
+```html
+shadow-sm shadow-md
+```
+
+or no shadow at all when the surrounding section already has enough depth.
+
+For Biggs buttons, interaction feedback should come from:
+
+- darker solid hover colors
+- slight lift
+- active press state
+- clear focus-visible ring
+- strong color contrast
+
+Do not use glow or halo effects as button interaction feedback.
+
+### Button Placement Rules
+
+Primary CTA placement:
+
+- Place primary CTAs near the main section headline or value proposition.
+- On mobile, primary CTAs may stack full-width.
+- On desktop, primary and secondary CTAs may sit side-by-side.
+- Primary CTA should usually appear first.
+
+Recommended mobile stack:
+
+```html
+flex flex-col gap-3 sm:flex-row
+```
+
+Recommended button group:
+
+```html
+<div class="mt-6 flex flex-col gap-3 sm:flex-row">...</div>
+```
+
+Button groups should maintain enough spacing to avoid accidental taps on mobile.
+
+---
+
+### Button Color Usage by Background
+
+#### Light Backgrounds
+
+Recommended CTA combinations:
+
+- Yellow primary + Blue secondary
+- Blue primary-style secondary + Blue outline
+- Red urgent only when emergency context exists
+- Green only for Septic/Sewer
+
+Example:
+
+```text
+Primary: Yellow
+Secondary: Blue fill or Blue outline
+Text Link: Biggs Blue
+```
+
+#### Dark Backgrounds
+
+Recommended CTA combinations:
+
+- Yellow primary + White outline secondary
+- Yellow primary + White text link
+- Red urgent only when emergency context exists
+- Green only for Septic/Sewer
+
+Example:
+
+```text
+Primary: Yellow
+Secondary: White outline
+Text Link: White with Yellow underline
+```
+
+---
+
+### Button Design Rules
+
+Buttons should use solid brand fills only.
+
+Do not use gradients for buttons.
+
+Use darker solid hover states, subtle shadow changes, and slight lift to create interaction feedback.
+
+Use active states for touch and pressed feedback.
+
+Use focus-visible states for keyboard accessibility.
+
+Reserve gradients for:
+
+- Section backgrounds
+- CTA panels
+- Hero overlays
+- Premium feature areas
+- Large visual containers
+
+Do not use gradients for:
+
+- Primary buttons
+- Secondary buttons
+- Emergency buttons
+- Septic/Sewer buttons
+- Text link CTAs
+
+---
+
+### Touch and Hover Rules for the Biggs Website
+
+Do:
+
+- Keep hover as desktop polish.
+- Add `active:` to important buttons, links, and clickable cards.
+- Add `focus-visible:` to buttons and links.
+- Add `focus-within:` to clickable cards where helpful.
+- Keep default states clear and complete.
+- Make all CTA meaning visible before hover.
+- Use `pointer-coarse:` only when smaller controls need improved touch sizing.
+
+Do not:
+
+- Hide important text, CTAs, pricing, service information, or controls until hover.
+- Depend on hover for mobile usability.
+- Use hover-only arrows as the only indication that a card is clickable.
+- Use sticky hover workarounds unless there is a proven issue in testing.
+- Override Tailwind v4’s default hover behavior.
+- Use gradients for button hover states.
+
+---
+
+### Clickable Card Interaction Rule
+
+Cards that behave like links should not rely on hover alone.
+
+Clickable cards should include:
+
+```html
+transition duration-200 hover:-translate-y-1 active:translate-y-0
+active:scale-[0.99] focus-within:ring-4 focus-within:ring-biggs-yellow/25
+```
+
+Clickable card rules:
+
+- The card must look clickable in its default state.
+- A visible CTA cue should be present by default.
+- Do not reveal essential content only on hover.
+- Hover may lift the card, strengthen the shadow, or move an arrow.
+- Active should provide a subtle pressed state for touch users.
+- Keyboard focus should be visible through `focus-within:` or a direct `focus-visible:` state on the link.
+
+---
+
+### Default Button Labels by Action
+
+Use consistent wording across the site.
+
+| Action               | Preferred Button Label |
+| -------------------- | ---------------------- |
+| Phone CTA            | Call Now               |
+| General booking CTA  | Schedule Service       |
+| Service category CTA | Explore Services       |
+| Service page CTA     | Request Service        |
+| Emergency CTA        | Emergency Service      |
+| Membership CTA       | View Membership Plans  |
+| Financing CTA        | View Financing Options |
+| Service area CTA     | View Service Area      |
+| Learn more CTA       | Learn More             |
+| Reviews CTA          | Read More Reviews      |
+
+---
+
+### TODO: Confirm Button Label Standards
+
+Confirm the final preferred labels for:
+
+- Primary service booking
+- Emergency service
+- Financing
+- Membership
+- Contact form submissions
+- Free estimate or quote language
+- Commercial service CTAs if added later
+
+---
+
+### TODO: Add Form Button Rules
+
+Add final rules for form submit buttons after forms are designed.
+
+Needed decisions:
+
+- Submit button label
+- Form loading state
+- Disabled state
+- Error state
+- Success state
+- Required field styling
+- Mobile form button width
+
+---
+
+### TODO: Add Disabled Button State
+
+Add disabled state rules when needed.
+
+Possible direction:
+
+```html
+opacity-50 cursor-not-allowed
+```
+
+Disabled buttons should remain readable but clearly inactive.
+
+---
+
+### TODO: Add Small Button / Header Button Rules
+
+The header phone button and compact nav buttons may need their own finalized sizing rules.
+
+Add final guidance after the header/navigation system is fully approved.
+
+---
+
+### TODO: Audit Existing Homepage Interactions
+
+Review the current homepage and update any interactive element that uses hover but does not include an active or focus-visible/focus-within state.
+
+Prioritize:
+
+- Hero CTA buttons
+- Header phone button
+- Service cards
+- Text link CTAs
+- Award/review links
+- Service area town links
+- PSA CTA buttons
+- Any clickable card with `group-hover:` styles
 
 ## 9. Icons and Service Color Mapping
 
@@ -963,7 +2210,9 @@ Test all major sections at:
 375px
 768px
 1024px
+1280px
 1440px
+1536px
 1920px
 ```
 

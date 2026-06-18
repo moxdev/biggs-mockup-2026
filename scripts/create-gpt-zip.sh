@@ -17,6 +17,7 @@ echo "Copying selected project files and folders..."
 rsync -a assets "$ZIP_FOLDER/"
 rsync -a dist "$ZIP_FOLDER/"
 rsync -a src "$ZIP_FOLDER/"
+rsync -a testing "$ZIP_FOLDER/"
 
 # Files
 cp index.html "$ZIP_FOLDER/"
@@ -25,6 +26,8 @@ cp package.json "$ZIP_FOLDER/"
 cp playwright.config.js "$ZIP_FOLDER/"
 cp README.md "$ZIP_FOLDER/"
 cp TESTING.md "$ZIP_FOLDER/"
+cp DESIGN.md "$ZIP_FOLDER/"
+cp HOMEPAGE-BLUEPRINT.md "$ZIP_FOLDER/"
 
 echo "Compressing $ZIP_FOLDER into $ZIP_FILE..."
 zip -r "$ZIP_FILE" "$ZIP_FOLDER" > /dev/null
