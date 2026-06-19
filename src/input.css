@@ -19,10 +19,11 @@
   --color-biggs-green-dark: #1f5824;
 
   /* Brand-Aligned Dark Blue System */
-  /* Deep Biggs blue tones for hero overlays, dark sections, cards, panels, gradients, and white-text backgrounds. Use these when official Biggs Blue is too bright for large background areas. */
+  /* Deep Biggs blue tones for hero overlays, dark sections, cards, panels, gradients, and white-text backgrounds. Use these when official Biggs Blue is too bright for large background areas. Biggs Blue Lift is reserved for lighter tone-on-tone decorative shapes in dark blue feature sections. */
   --color-biggs-blue-deep: #173966;
   --color-biggs-blue-darker: #12305a;
   --color-biggs-blue-darkest: #0d274d;
+  --color-biggs-blue-lift: #2b6fb8;
 
   /* Supporting Service Accent Colors */
   /* Additional non-logo accent colors for service-category icons and small visual distinctions. Use sparingly. Biggs Blue should remain dominant. */

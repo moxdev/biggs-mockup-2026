@@ -137,6 +137,21 @@ testing/screenshots/
 
 ---
 
+## Current Screenshot Breakpoints
+
+````js
+const viewports = [
+  { name: "mobile-375", width: 375, height: 1800 },
+  { name: "mobile-640", width: 640, height: 1800 },
+  { name: "tablet-768", width: 768, height: 1800 },
+  { name: "desktop-1024", width: 1024, height: 1400 },
+  { name: "desktop-1280", width: 1280, height: 1400 },
+  { name: "desktop-1536", width: 1536, height: 1400 },
+  { name: "wide-1920", width: 1920, height: 1400 },
+];
+
+---
+
 ## Homepage Section IDs
 
 Use these IDs when running section screenshots.
@@ -183,7 +198,7 @@ This is important because new Tailwind utility classes added to `index.html` mus
 
 ```text
 dist/output.css
-```
+````
 
 Build command:
 

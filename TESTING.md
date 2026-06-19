@@ -78,6 +78,7 @@ Use these for manual resizing checks:
 
 ```text
 375x900
+640x900
 768x1024
 1024x768
 1280x800
@@ -96,9 +97,12 @@ The Playwright screenshot workflow captures screenshots at these widths:
 
 ```text
 375px
+640px
 768px
 1024px
+1280px
 1440px
+1536px
 1920px
 ```
 
@@ -171,9 +175,12 @@ Example output for the Awards section:
 
 ```text
 home-awards-mobile-375.png
+home-awards-mobile-640.png
 home-awards-tablet-768.png
 home-awards-desktop-1024.png
+home-awards-desktop-1280.png
 home-awards-desktop-1440.png
+home-awards-desktop-1536.png
 home-awards-wide-1920.png
 ```
 
@@ -187,9 +194,12 @@ Example for Awards:
 
 ```text
 home-awards-mobile-375.png
+home-awards-mobile-640.png
 home-awards-tablet-768.png
 home-awards-desktop-1024.png
+home-awards-desktop-1280.png
 home-awards-desktop-1440.png
+home-awards-desktop-1536.png
 home-awards-wide-1920.png
 ```
 
@@ -216,9 +226,12 @@ This creates:
 
 ```text
 homepage-mobile-375.png
+homepage-mobile-640.png
 homepage-tablet-768.png
 homepage-desktop-1024.png
+homepage-desktop-1280.png
 homepage-desktop-1440.png
+homepage-desktop-1536.png
 homepage-wide-1920.png
 ```
 
